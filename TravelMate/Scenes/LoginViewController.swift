@@ -197,8 +197,8 @@ class LoginViewController: UIViewController {
     
     private func setupUI() {
         gradientLayer.colors = [
-            UIColor(red: 0.2, green: 0.6, blue: 0.9, alpha: 1.0).cgColor,
-            UIColor(red: 0.1, green: 0.4, blue: 0.7, alpha: 1.0).cgColor
+            UIColor(red: 0.09, green: 0.45, blue: 0.82, alpha: 1.0).cgColor,
+            UIColor(red: 0.40, green: 0.23, blue: 0.72, alpha: 1.0).cgColor
         ]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
@@ -231,12 +231,12 @@ class LoginViewController: UIViewController {
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
-            logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 60),
+            logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 70),
             logoImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            logoImageView.widthAnchor.constraint(equalToConstant: 60),
-            logoImageView.heightAnchor.constraint(equalToConstant: 60),
+            logoImageView.widthAnchor.constraint(equalToConstant: 70),
+            logoImageView.heightAnchor.constraint(equalToConstant: 70),
             
-            titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 16),
+            titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
             
@@ -244,12 +244,12 @@ class LoginViewController: UIViewController {
             subtitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 32),
             subtitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -32),
             
-            formContainerView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 40),
+            formContainerView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 48),
             formContainerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             formContainerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             formContainerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
-            emailTextField.topAnchor.constraint(equalTo: formContainerView.topAnchor, constant: 32),
+            emailTextField.topAnchor.constraint(equalTo: formContainerView.topAnchor, constant: 40),
             emailTextField.leadingAnchor.constraint(equalTo: formContainerView.leadingAnchor, constant: 24),
             emailTextField.trailingAnchor.constraint(equalTo: formContainerView.trailingAnchor, constant: -24),
             
@@ -257,21 +257,21 @@ class LoginViewController: UIViewController {
             passwordTextField.leadingAnchor.constraint(equalTo: formContainerView.leadingAnchor, constant: 24),
             passwordTextField.trailingAnchor.constraint(equalTo: formContainerView.trailingAnchor, constant: -24),
             
-            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 24),
+            loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 32),
             loginButton.leadingAnchor.constraint(equalTo: formContainerView.leadingAnchor, constant: 24),
             loginButton.trailingAnchor.constraint(equalTo: formContainerView.trailingAnchor, constant: -24),
             
-            dividerView.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 24),
+            dividerView.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 32),
             dividerView.leadingAnchor.constraint(equalTo: formContainerView.leadingAnchor, constant: 24),
             dividerView.trailingAnchor.constraint(equalTo: formContainerView.trailingAnchor, constant: -24),
             
-            signupButton.topAnchor.constraint(equalTo: dividerView.bottomAnchor, constant: 24),
+            signupButton.topAnchor.constraint(equalTo: dividerView.bottomAnchor, constant: 32),
             signupButton.leadingAnchor.constraint(equalTo: formContainerView.leadingAnchor, constant: 24),
             signupButton.trailingAnchor.constraint(equalTo: formContainerView.trailingAnchor, constant: -24),
             
-            signupAgencyButton.topAnchor.constraint(equalTo: signupButton.bottomAnchor, constant: 16),
+            signupAgencyButton.topAnchor.constraint(equalTo: signupButton.bottomAnchor, constant: 20),
             signupAgencyButton.centerXAnchor.constraint(equalTo: formContainerView.centerXAnchor),
-            signupAgencyButton.bottomAnchor.constraint(equalTo: formContainerView.bottomAnchor, constant: -40)
+            signupAgencyButton.bottomAnchor.constraint(equalTo: formContainerView.bottomAnchor, constant: -48)
         ])
     }
     
@@ -356,12 +356,23 @@ class LoginViewController: UIViewController {
     }
     
     private func navigateToMain() {
-        let mainTabBar = MainTabBarController()
-        mainTabBar.modalPresentationStyle = .fullScreen
+        guard let user = AuthService.shared.currentUser else {
+            return
+        }
+        
+        let destinationVC: UIViewController
+        
+        if user.userType == .agence {
+            destinationVC = AgencyDashboardViewController()
+        } else {
+            destinationVC = MainTabBarController()
+        }
+        
+        destinationVC.modalPresentationStyle = .fullScreen
         
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let window = windowScene.windows.first {
-            window.rootViewController = mainTabBar
+            window.rootViewController = destinationVC
             UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil)
         }
         

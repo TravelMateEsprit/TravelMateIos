@@ -54,6 +54,14 @@ class AuthService {
         return accessToken != nil && currentUser != nil
     }
     
+    func getCurrentUserId() -> String? {
+        return currentUser?.id
+    }
+    
+    func getAccessToken() -> String? {
+        return accessToken
+    }
+    
     func signup(name: String, email: String, password: String) async throws -> User {
         let request = SignupRequest(name: name, email: email, password: password)
         let user: User = try await networkService.request(

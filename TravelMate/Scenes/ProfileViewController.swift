@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController {
     
     private let headerView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 0.2, green: 0.6, blue: 0.9, alpha: 1.0)
+        view.backgroundColor = UIColor(red: 0.09, green: 0.45, blue: 0.82, alpha: 1.0)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "person.circle.fill")
-        imageView.tintColor = UIColor(red: 0.2, green: 0.6, blue: 0.9, alpha: 1.0)
+        imageView.tintColor = UIColor(red: 0.09, green: 0.45, blue: 0.82, alpha: 1.0)
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -157,7 +157,7 @@ class ProfileViewController: UIViewController {
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(red: 0.2, green: 0.6, blue: 0.9, alpha: 1.0)
+        appearance.backgroundColor = UIColor(red: 0.09, green: 0.45, blue: 0.82, alpha: 1.0)
         appearance.shadowColor = .clear
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         
