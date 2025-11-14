@@ -30,13 +30,6 @@
 		AA0041 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA0042 /* LaunchScreen.storyboard */; };
 		AA0045 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = AA0044 /* SocketIO */; };
 		AA88A4 /* AgencyDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFF5E /* AgencyDashboardViewController.swift */; };
-		26EA0F4589BD4145805128A5 /* Insurance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DDEFC331A04FC6972FBBD3 /* Insurance.swift */; };
-		07E08165C85747FE961E6143 /* InsuranceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470F530247640AD9E1CDD75 /* InsuranceService.swift */; };
-		076F498D77AB4CD69B912FAE /* InsuranceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC45E20A5C14EFFBBFFACF9 /* InsuranceDetailViewController.swift */; };
-		DFF6E26F9166414AA0BCB512 /* AgencyInsurancesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D52A5BF19A642308DC70424 /* AgencyInsurancesViewController.swift */; };
-		0A1A2AA08AD146B28C15A8D1 /* CreateInsuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04BBA76CEEA40DD85C4605D /* CreateInsuranceViewController.swift */; };
-		D484EAF5DE984ADEAB509187 /* EditInsuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8808D42F3E4A08B3749D44 /* EditInsuranceViewController.swift */; };
-		339A900200E84B99B7E98ABE /* AgencyInsuranceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3E21B90ED432A9434C3AC /* AgencyInsuranceDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,13 +57,6 @@
 		AA0043 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA0046 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAFF5E /* AgencyDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgencyDashboardViewController.swift; sourceTree = "<group>"; };
-		08DDEFC331A04FC6972FBBD3 /* Insurance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insurance.swift; sourceTree = "<group>"; };
-		A470F530247640AD9E1CDD75 /* InsuranceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceService.swift; sourceTree = "<group>"; };
-		8CC45E20A5C14EFFBBFFACF9 /* InsuranceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceDetailViewController.swift; sourceTree = "<group>"; };
-		7D52A5BF19A642308DC70424 /* AgencyInsurancesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgencyInsurancesViewController.swift; sourceTree = "<group>"; };
-		C04BBA76CEEA40DD85C4605D /* CreateInsuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateInsuranceViewController.swift; sourceTree = "<group>"; };
-		BD8808D42F3E4A08B3749D44 /* EditInsuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInsuranceViewController.swift; sourceTree = "<group>"; };
-		F4D3E21B90ED432A9434C3AC /* AgencyInsuranceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgencyInsuranceDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,12 +109,7 @@
 				AA0020 /* OffersViewController.swift */,
 				AA0022 /* GroupsViewController.swift */,
 				AA0024 /* ProfileViewController.swift */,
-			
-				8CC45E20A5C14EFFBBFFACF9 /* InsuranceDetailViewController.swift */,
-				7D52A5BF19A642308DC70424 /* AgencyInsurancesViewController.swift */,
-				C04BBA76CEEA40DD85C4605D /* CreateInsuranceViewController.swift */,
-				BD8808D42F3E4A08B3749D44 /* EditInsuranceViewController.swift */,
-				F4D3E21B90ED432A9434C3AC /* AgencyInsuranceDetailViewController.swift */,);
+			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
@@ -138,8 +119,7 @@
 				AA0026 /* AuthService.swift */,
 				AA0028 /* NetworkService.swift */,
 				AA0030 /* WebSocketService.swift */,
-			
-				A470F530247640AD9E1CDD75 /* InsuranceService.swift */,);
+			);
 			path = Services;
 			sourceTree = "<group>";
 		};
@@ -147,8 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				AA0032 /* User.swift */,
-			
-				08DDEFC331A04FC6972FBBD3 /* Insurance.swift */,);
+			);
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -290,14 +269,7 @@
 				AA0033 /* Config.swift in Sources */,
 				AA0035 /* Extensions.swift in Sources */,
 				AA0037 /* Validators.swift in Sources */,
-			
-				26EA0F4589BD4145805128A5 /* Insurance.swift in Sources */,
-				07E08165C85747FE961E6143 /* InsuranceService.swift in Sources */,
-				076F498D77AB4CD69B912FAE /* InsuranceDetailViewController.swift in Sources */,
-				DFF6E26F9166414AA0BCB512 /* AgencyInsurancesViewController.swift in Sources */,
-				0A1A2AA08AD146B28C15A8D1 /* CreateInsuranceViewController.swift in Sources */,
-				D484EAF5DE984ADEAB509187 /* EditInsuranceViewController.swift in Sources */,
-				339A900200E84B99B7E98ABE /* AgencyInsuranceDetailViewController.swift in Sources */,);
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */

@@ -1,0 +1,539 @@
+import UIKit
+
+class AgencyDashboardViewController: UIViewController {
+    
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsVerticalScrollIndicator = false
+        return scrollView
+    }()
+    
+    private let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private let headerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [
+            UIColor(red: 0.09, green: 0.45, blue: 0.82, alpha: 1.0).cgColor,
+            UIColor(red: 0.40, green: 0.23, blue: 0.72, alpha: 1.0).cgColor
+        ]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200)
+        view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        return view
+    }()
+    
+    private let welcomeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Tableau de bord"
+        label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let agencyNameLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        label.textColor = .white.withAlphaComponent(0.9)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let logoutButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "rectangle.portrait.and.arrow.right"), for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        button.layer.cornerRadius = 20
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private let statsStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 16
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    private let menuStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 16
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
+        loadAgencyData()
+        setupActions()
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let gradientLayer = headerView.layer.sublayers?.first as? CAGradientLayer {
+            gradientLayer.frame = headerView.bounds
+        }
+    }
+    
+    private func setupUI() {
+        view.backgroundColor = UIColor(white: 0.97, alpha: 1)
+        
+        view.addSubview(headerView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        headerView.addSubview(welcomeLabel)
+        headerView.addSubview(agencyNameLabel)
+        headerView.addSubview(logoutButton)
+        
+        contentView.addSubview(statsStackView)
+        contentView.addSubview(menuStackView)
+        
+        NSLayoutConstraint.activate([
+            headerView.topAnchor.constraint(equalTo: view.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: 200),
+            
+            welcomeLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 24),
+            welcomeLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -24),
+            welcomeLabel.bottomAnchor.constraint(equalTo: agencyNameLabel.topAnchor, constant: -8),
+            
+            agencyNameLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 24),
+            agencyNameLabel.trailingAnchor.constraint(equalTo: logoutButton.leadingAnchor, constant: -16),
+            agencyNameLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -24),
+            
+            logoutButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -24),
+            logoutButton.centerYAnchor.constraint(equalTo: agencyNameLabel.centerYAnchor),
+            logoutButton.widthAnchor.constraint(equalToConstant: 40),
+            logoutButton.heightAnchor.constraint(equalToConstant: 40),
+            
+            scrollView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            statsStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -30),
+            statsStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            statsStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            
+            menuStackView.topAnchor.constraint(equalTo: statsStackView.bottomAnchor, constant: 24),
+            menuStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            menuStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            menuStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24)
+        ])
+        
+        setupStatsCards()
+        setupMenuCards()
+    }
+    
+    private func setupStatsCards() {
+        let horizontalStack = UIStackView()
+        horizontalStack.axis = .horizontal
+        horizontalStack.distribution = .fillEqually
+        horizontalStack.spacing = 12
+        
+        let insurancesCard = createStatCard(
+            icon: "shield.fill",
+            count: "0",
+            title: "Assurances",
+            color: UIColor.systemBlue
+        )
+        
+        let requestsCard = createStatCard(
+            icon: "bell.fill",
+            count: "0",
+            title: "Demandes",
+            color: UIColor.systemOrange
+        )
+        
+        horizontalStack.addArrangedSubview(insurancesCard)
+        horizontalStack.addArrangedSubview(requestsCard)
+        
+        statsStackView.addArrangedSubview(horizontalStack)
+    }
+    
+    private func createStatCard(icon: String, count: String, title: String, color: UIColor) -> UIView {
+        let card = UIView()
+        card.backgroundColor = .white
+        card.layer.cornerRadius = 16
+        card.layer.shadowColor = UIColor.black.cgColor
+        card.layer.shadowOffset = CGSize(width: 0, height: 2)
+        card.layer.shadowRadius = 8
+        card.layer.shadowOpacity = 0.1
+        
+        let iconContainer = UIView()
+        iconContainer.backgroundColor = color.withAlphaComponent(0.1)
+        iconContainer.layer.cornerRadius = 12
+        iconContainer.translatesAutoresizingMaskIntoConstraints = false
+        
+        let iconView = UIImageView(image: UIImage(systemName: icon))
+        iconView.tintColor = color
+        iconView.contentMode = .scaleAspectFit
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let countLabel = UILabel()
+        countLabel.text = count
+        countLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        countLabel.textColor = .black
+        countLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let titleLabel = UILabel()
+        titleLabel.text = title
+        titleLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        titleLabel.textColor = .systemGray
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        iconContainer.addSubview(iconView)
+        card.addSubview(iconContainer)
+        card.addSubview(countLabel)
+        card.addSubview(titleLabel)
+        
+        NSLayoutConstraint.activate([
+            iconContainer.topAnchor.constraint(equalTo: card.topAnchor, constant: 16),
+            iconContainer.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 16),
+            iconContainer.widthAnchor.constraint(equalToConstant: 48),
+            iconContainer.heightAnchor.constraint(equalToConstant: 48),
+            
+            iconView.centerXAnchor.constraint(equalTo: iconContainer.centerXAnchor),
+            iconView.centerYAnchor.constraint(equalTo: iconContainer.centerYAnchor),
+            iconView.widthAnchor.constraint(equalToConstant: 24),
+            iconView.heightAnchor.constraint(equalToConstant: 24),
+            
+            countLabel.topAnchor.constraint(equalTo: iconContainer.bottomAnchor, constant: 12),
+            countLabel.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 16),
+            
+            titleLabel.topAnchor.constraint(equalTo: countLabel.bottomAnchor, constant: 4),
+            titleLabel.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 16),
+            titleLabel.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -16),
+            
+            card.heightAnchor.constraint(equalToConstant: 140)
+        ])
+        
+        return card
+    }
+    
+    private func setupMenuCards() {
+        let sectionTitle = UILabel()
+        sectionTitle.text = "Menu"
+        sectionTitle.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        sectionTitle.textColor = .black
+        menuStackView.addArrangedSubview(sectionTitle)
+        
+        // Menu déroulant pour les assurances
+        let insurancesSection = createExpandableSection(
+            icon: "shield.lefthalf.filled",
+            title: "Assurances",
+            subtitle: "Gérer mes assurances",
+            color: .systemBlue,
+            actions: [
+                ("Mes Assurances", #selector(openInsurances)),
+                ("Créer une Assurance", #selector(createNewInsurance))
+            ]
+        )
+        
+        let requestsMenu = createMenuCard(
+            icon: "person.badge.plus.fill",
+            title: "Demandes d'adhésion",
+            subtitle: "Consulter les demandes en attente",
+            color: .systemOrange
+        )
+        requestsMenu.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openRequests)))
+        
+        let statsMenu = createMenuCard(
+            icon: "chart.bar.fill",
+            title: "Statistiques",
+            subtitle: "Voir les performances",
+            color: .systemGreen
+        )
+        statsMenu.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openStats)))
+        
+        let profileMenu = createMenuCard(
+            icon: "person.circle.fill",
+            title: "Mon Profil Agence",
+            subtitle: "Modifier les informations",
+            color: .systemPurple
+        )
+        profileMenu.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openProfile)))
+        
+        menuStackView.addArrangedSubview(insurancesSection)
+        menuStackView.addArrangedSubview(requestsMenu)
+        menuStackView.addArrangedSubview(statsMenu)
+        menuStackView.addArrangedSubview(profileMenu)
+    }
+    
+    private func createExpandableSection(icon: String, title: String, subtitle: String, color: UIColor, actions: [(String, Selector)]) -> UIView {
+        let containerView = UIView()
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Générer un tag unique
+        let uniqueTag = title.hashValue
+        
+        // Main card
+        let mainCard = createMenuCard(icon: icon, title: title, subtitle: subtitle, color: color)
+        
+        // Actions container (initialement caché)
+        let actionsStack = UIStackView()
+        actionsStack.axis = .vertical
+        actionsStack.spacing = 8
+        actionsStack.translatesAutoresizingMaskIntoConstraints = false
+        actionsStack.alpha = 0
+        actionsStack.isHidden = true
+        
+        for (actionTitle, selector) in actions {
+            let actionButton = createActionButton(title: actionTitle, selector: selector)
+            actionsStack.addArrangedSubview(actionButton)
+        }
+        
+        containerView.addSubview(mainCard)
+        containerView.addSubview(actionsStack)
+        
+        NSLayoutConstraint.activate([
+            mainCard.topAnchor.constraint(equalTo: containerView.topAnchor),
+            mainCard.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            mainCard.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            
+            actionsStack.topAnchor.constraint(equalTo: mainCard.bottomAnchor, constant: 8),
+            actionsStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            actionsStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
+            actionsStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+        ])
+        
+        // Add tap gesture to expand/collapse
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(toggleSection(_:)))
+        mainCard.tag = uniqueTag
+        mainCard.addGestureRecognizer(tapGesture)
+        actionsStack.tag = uniqueTag
+        
+        return containerView
+    }
+    
+    private func createActionButton(title: String, selector: Selector) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(.primaryColor, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 12
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOffset = CGSize(width: 0, height: 1)
+        button.layer.shadowRadius = 4
+        button.layer.shadowOpacity = 0.1
+        button.contentHorizontalAlignment = .left
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: selector, for: .touchUpInside)
+        
+        // Configuration pour iOS 15+
+        if #available(iOS 15.0, *) {
+            var config = UIButton.Configuration.plain()
+            config.title = title
+            config.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 20, bottom: 16, trailing: 20)
+            button.configuration = config
+        } else {
+            button.contentEdgeInsets = UIEdgeInsets(top: 16, left: 20, bottom: 16, right: 20)
+        }
+        
+        NSLayoutConstraint.activate([
+            button.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        return button
+    }
+    
+    @objc private func toggleSection(_ gesture: UITapGestureRecognizer) {
+        guard let card = gesture.view,
+              let container = card.superview else { return }
+        
+        // Find the actions stack with the same tag
+        if let actionsStack = container.subviews.first(where: { $0 is UIStackView && $0.tag == card.tag }) as? UIStackView {
+            
+            UIView.animate(withDuration: 0.3) {
+                if actionsStack.isHidden {
+                    actionsStack.isHidden = false
+                    actionsStack.alpha = 1
+                } else {
+                    actionsStack.alpha = 0
+                }
+            } completion: { _ in
+                if actionsStack.alpha == 0 {
+                    actionsStack.isHidden = true
+                }
+            }
+        }
+    }
+    
+    private func createMenuCard(icon: String, title: String, subtitle: String, color: UIColor) -> UIView {
+        let card = UIView()
+        card.backgroundColor = .white
+        card.layer.cornerRadius = 16
+        card.layer.shadowColor = UIColor.black.cgColor
+        card.layer.shadowOffset = CGSize(width: 0, height: 2)
+        card.layer.shadowRadius = 8
+        card.layer.shadowOpacity = 0.1
+        card.isUserInteractionEnabled = true
+        
+        let iconContainer = UIView()
+        iconContainer.backgroundColor = color.withAlphaComponent(0.1)
+        iconContainer.layer.cornerRadius = 12
+        iconContainer.translatesAutoresizingMaskIntoConstraints = false
+        
+        let iconView = UIImageView(image: UIImage(systemName: icon))
+        iconView.tintColor = color
+        iconView.contentMode = .scaleAspectFit
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let titleLabel = UILabel()
+        titleLabel.text = title
+        titleLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        titleLabel.textColor = .black
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let subtitleLabel = UILabel()
+        subtitleLabel.text = subtitle
+        subtitleLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        subtitleLabel.textColor = .systemGray
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let chevronView = UIImageView(image: UIImage(systemName: "chevron.right"))
+        chevronView.tintColor = .systemGray3
+        chevronView.contentMode = .scaleAspectFit
+        chevronView.translatesAutoresizingMaskIntoConstraints = false
+        
+        iconContainer.addSubview(iconView)
+        card.addSubview(iconContainer)
+        card.addSubview(titleLabel)
+        card.addSubview(subtitleLabel)
+        card.addSubview(chevronView)
+        
+        NSLayoutConstraint.activate([
+            iconContainer.leadingAnchor.constraint(equalTo: card.leadingAnchor, constant: 16),
+            iconContainer.centerYAnchor.constraint(equalTo: card.centerYAnchor),
+            iconContainer.widthAnchor.constraint(equalToConstant: 48),
+            iconContainer.heightAnchor.constraint(equalToConstant: 48),
+            
+            iconView.centerXAnchor.constraint(equalTo: iconContainer.centerXAnchor),
+            iconView.centerYAnchor.constraint(equalTo: iconContainer.centerYAnchor),
+            iconView.widthAnchor.constraint(equalToConstant: 24),
+            iconView.heightAnchor.constraint(equalToConstant: 24),
+            
+            titleLabel.leadingAnchor.constraint(equalTo: iconContainer.trailingAnchor, constant: 16),
+            titleLabel.topAnchor.constraint(equalTo: card.topAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: chevronView.leadingAnchor, constant: -8),
+            
+            subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
+            subtitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            subtitleLabel.bottomAnchor.constraint(equalTo: card.bottomAnchor, constant: -16),
+            
+            chevronView.trailingAnchor.constraint(equalTo: card.trailingAnchor, constant: -16),
+            chevronView.centerYAnchor.constraint(equalTo: card.centerYAnchor),
+            chevronView.widthAnchor.constraint(equalToConstant: 20),
+            chevronView.heightAnchor.constraint(equalToConstant: 20),
+            
+            card.heightAnchor.constraint(equalToConstant: 80)
+        ])
+        
+        return card
+    }
+    
+    private func loadAgencyData() {
+        if let user = AuthService.shared.currentUser {
+            agencyNameLabel.text = user.agencyName ?? "Agence"
+        }
+    }
+    
+    private func setupActions() {
+        logoutButton.addTarget(self, action: #selector(handleLogout), for: .touchUpInside)
+    }
+    
+    @objc private func handleLogout() {
+        let alert = UIAlertController(
+            title: "Déconnexion",
+            message: "Êtes-vous sûr de vouloir vous déconnecter ?",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Annuler", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Déconnexion", style: .destructive) { [weak self] _ in
+            self?.performLogout()
+        })
+        
+        present(alert, animated: true)
+    }
+    
+    private func performLogout() {
+        AuthService.shared.logout()
+        
+        let loginVC = LoginViewController()
+        let navController = UINavigationController(rootViewController: loginVC)
+        navController.modalPresentationStyle = .fullScreen
+        
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first {
+            window.rootViewController = navController
+            UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil)
+        }
+    }
+    
+    @objc private func openInsurances() {
+        let insurancesVC = AgencyInsurancesViewController()
+        let navController = UINavigationController(rootViewController: insurancesVC)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true)
+    }
+    
+    @objc private func createNewInsurance() {
+        let createVC = CreateInsuranceViewController()
+        let navController = UINavigationController(rootViewController: createVC)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true)
+    }
+    
+    @objc private func openRequests() {
+        showComingSoonAlert(feature: "Demandes d'adhésion")
+    }
+    
+    @objc private func openStats() {
+        showComingSoonAlert(feature: "Statistiques")
+    }
+    
+    @objc private func openProfile() {
+        showComingSoonAlert(feature: "Mon Profil Agence")
+    }
+    
+    private func showComingSoonAlert(feature: String) {
+        let alert = UIAlertController(
+            title: "Prochainement",
+            message: "La fonctionnalité '\(feature)' sera disponible bientôt.",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+}
