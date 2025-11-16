@@ -22,7 +22,7 @@ class MainTabBarController: UITabBarController {
             selectedImage: UIImage(systemName: "shield.fill")
         )
         
-        let offersVC = OffersViewController()
+        let offersVC = VoyageListViewController()
         offersVC.tabBarItem = UITabBarItem(
             title: "Offres",
             image: UIImage(systemName: "tag"),

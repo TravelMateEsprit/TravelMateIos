@@ -59,7 +59,8 @@ class AuthService {
         let user: User = try await networkService.request(
             endpoint: "/auth/signup",
             method: .post,
-            body: request
+            body: request,
+            requiresAuth: false // Signup doesn't require authentication
         )
         return user
     }
@@ -93,7 +94,8 @@ class AuthService {
         let user: User = try await networkService.request(
             endpoint: "/auth/signup/agency",
             method: .post,
-            body: request
+            body: request,
+            requiresAuth: false // Agency signup doesn't require authentication
         )
         return user
     }
@@ -103,7 +105,8 @@ class AuthService {
         let response: LoginResponse = try await networkService.request(
             endpoint: "/auth/login",
             method: .post,
-            body: request
+            body: request,
+            requiresAuth: false // Login doesn't require authentication
         )
         
         accessToken = response.accessToken
