@@ -23,6 +23,33 @@ struct Insurance: Codable, Identifiable {
         case isActive, subscribers, imageUrl, conditions, createdAt, updatedAt
     }
     
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        id = try container.decode(String.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
+        description = try container.decode(String.self, forKey: .description)
+        price = try container.decode(Double.self, forKey: .price)
+        duration = try container.decode(String.self, forKey: .duration)
+        coverage = try container.decode([String].self, forKey: .coverage)
+        isActive = try container.decode(Bool.self, forKey: .isActive)
+        subscribers = try container.decode([String].self, forKey: .subscribers)
+        imageUrl = try container.decodeIfPresent(String.self, forKey: .imageUrl)
+        conditions = try container.decodeIfPresent(InsuranceConditions.self, forKey: .conditions)
+        createdAt = try container.decodeIfPresent(String.self, forKey: .createdAt)
+        updatedAt = try container.decodeIfPresent(String.self, forKey: .updatedAt)
+        
+        // Décodage flexible pour agencyId (peut être String ou AgencyInfo)
+        if let agencyInfo = try? container.decode(AgencyInfo.self, forKey: .agencyId) {
+            agencyId = agencyInfo
+        } else if let _ = try? container.decode(String.self, forKey: .agencyId) {
+            // Si c'est juste un String (ID), on met nil car on n'a pas les détails
+            agencyId = nil
+        } else {
+            agencyId = nil
+        }
+    }
+    
     var subscribersCount: Int {
         return subscribers.count
     }

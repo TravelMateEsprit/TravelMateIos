@@ -368,28 +368,64 @@ class AgencyInsuranceDetailViewController: UIViewController {
     
     private func performToggle() {
         toggleButton.isEnabled = false
+        let wasActive = insurance.isActive
         
         Task {
             do {
                 insurance = try await insuranceService.toggleInsuranceStatus(id: insurance.id)
+                print("✅ Statut modifié avec succès")
                 await MainActor.run {
                     self.toggleButton.isEnabled = true
                     self.updateToggleButton()
                     self.delegate?.didUpdateInsurance()
-                    
-                    // Update status badge
-                    if let statusBadge = self.headerCard.subviews.first(where: { $0.subviews.first is UILabel }) {
-                        statusBadge.backgroundColor = self.insurance.isActive ? UIColor.systemGreen : UIColor.systemRed
-                        if let statusLabel = statusBadge.subviews.first as? UILabel {
-                            statusLabel.text = self.insurance.isActive ? "Actif" : "Inactif"
-                        }
-                    }
+                    self.updateStatusBadge()
                 }
             } catch {
+                print("❌ Erreur lors du toggle: \(error.localizedDescription)")
+                
+                // En cas d'erreur de décodage, recharger l'assurance pour vérifier le statut
+                if error.localizedDescription.contains("décodage") || error.localizedDescription.contains("decoding") {
+                    try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 sec
+                    
+                    do {
+                        let insurances = try await insuranceService.getMyAgencyInsurances()
+                        if let refreshed = insurances.first(where: { $0.id == insurance.id }) {
+                            insurance = refreshed
+                            
+                            // Vérifier si le statut a changé
+                            if refreshed.isActive != wasActive {
+                                print("✅ Statut changé malgré l'erreur - succès")
+                                await MainActor.run {
+                                    self.toggleButton.isEnabled = true
+                                    self.updateToggleButton()
+                                    self.delegate?.didUpdateInsurance()
+                                    self.updateStatusBadge()
+                                }
+                                return
+                            }
+                        }
+                    } catch {
+                        // Ignore, afficher l'erreur originale ci-dessous
+                    }
+                }
+                
                 await MainActor.run {
                     self.toggleButton.isEnabled = true
                     self.showError(message: error.localizedDescription)
                 }
+            }
+        }
+    }
+    
+    private func updateStatusBadge() {
+        // Update status badge color and text
+        for subview in headerCard.subviews {
+            if let statusBadge = subview as? UIView, 
+               let statusLabel = statusBadge.subviews.first as? UILabel,
+               statusLabel.text == "Actif" || statusLabel.text == "Inactif" {
+                statusBadge.backgroundColor = insurance.isActive ? UIColor.systemGreen : UIColor.systemRed
+                statusLabel.text = insurance.isActive ? "Actif" : "Inactif"
+                break
             }
         }
     }

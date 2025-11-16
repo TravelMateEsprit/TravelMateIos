@@ -259,11 +259,35 @@ class EditInsuranceViewController: UIViewController {
         Task {
             do {
                 _ = try await insuranceService.updateInsurance(id: insurance.id, request: request)
+                print("✅ Assurance modifiée avec succès")
                 await MainActor.run {
                     self.delegate?.didUpdateInsurance()
                     self.dismiss(animated: true)
                 }
             } catch {
+                print("❌ Erreur lors de la modification: \(error.localizedDescription)")
+                
+                // En cas d'erreur de décodage, vérifier si la modification a quand même été appliquée
+                if error.localizedDescription.contains("décodage") || error.localizedDescription.contains("decoding") {
+                    try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 sec
+                    
+                    do {
+                        let insurances = try await insuranceService.getMyAgencyInsurances()
+                        // Vérifier si l'assurance a été modifiée
+                        if let updated = insurances.first(where: { $0.id == insurance.id }),
+                           updated.name == request.name {
+                            print("✅ Modification appliquée malgré l'erreur - succès")
+                            await MainActor.run {
+                                self.delegate?.didUpdateInsurance()
+                                self.dismiss(animated: true)
+                            }
+                            return
+                        }
+                    } catch {
+                        // Ignore, afficher l'erreur originale ci-dessous
+                    }
+                }
+                
                 await MainActor.run {
                     self.saveButton.isEnabled = true
                     self.showError(message: error.localizedDescription)

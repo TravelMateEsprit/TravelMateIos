@@ -22,6 +22,7 @@ class NetworkService {
         case decodingError
         case serverError(String)
         case unauthorized
+        case connectionRefused
         
         var localizedDescription: String {
             switch self {
@@ -30,11 +31,13 @@ class NetworkService {
             case .noData:
                 return "Aucune donnée reçue"
             case .decodingError:
-                return "Erreur de décodage"
+                return "Erreur de décodage des données"
             case .serverError(let message):
                 return message
             case .unauthorized:
                 return "Non autorisé"
+            case .connectionRefused:
+                return "Impossible de se connecter au serveur. Vérifiez que le serveur est démarré."
             }
         }
     }
@@ -63,29 +66,39 @@ class NetworkService {
             request.httpBody = try JSONEncoder().encode(body)
         }
         
-        let (data, response) = try await URLSession.shared.data(for: request)
-        
-        guard let httpResponse = response as? HTTPURLResponse else {
-            throw NetworkError.noData
-        }
-        
-        if httpResponse.statusCode == 401 {
-            throw NetworkError.unauthorized
-        }
-        
-        if httpResponse.statusCode >= 400 {
-            if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
-                throw NetworkError.serverError(errorResponse.message)
-            }
-            throw NetworkError.serverError("Erreur serveur: \(httpResponse.statusCode)")
-        }
-        
         do {
-            let decoder = JSONDecoder()
-            return try decoder.decode(T.self, from: data)
-        } catch {
-            print("Decoding error: \(error)")
-            throw NetworkError.decodingError
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw NetworkError.noData
+            }
+            
+            if httpResponse.statusCode == 401 {
+                throw NetworkError.unauthorized
+            }
+            
+            if httpResponse.statusCode >= 400 {
+                if let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data) {
+                    throw NetworkError.serverError(errorResponse.message)
+                }
+                throw NetworkError.serverError("Erreur serveur: \(httpResponse.statusCode)")
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                return try decoder.decode(T.self, from: data)
+            } catch {
+                print("Decoding error: \(error)")
+                if let jsonString = String(data: data, encoding: .utf8) {
+                    print("Response data: \(jsonString)")
+                }
+                throw NetworkError.decodingError
+            }
+        } catch let error as URLError {
+            if error.code == .cannotConnectToHost || error.code == .networkConnectionLost {
+                throw NetworkError.connectionRefused
+            }
+            throw error
         }
     }
 }

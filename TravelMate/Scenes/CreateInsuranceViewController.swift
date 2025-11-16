@@ -239,11 +239,35 @@ class CreateInsuranceViewController: UIViewController {
         Task {
             do {
                 _ = try await insuranceService.createInsurance(request: request)
+                print("✅ Assurance créée avec succès")
                 await MainActor.run {
                     self.delegate?.didCreateInsurance()
                     self.dismiss(animated: true)
                 }
             } catch {
+                print("❌ Erreur lors de la création: \(error.localizedDescription)")
+                
+                // En cas d'erreur de décodage, vérifier si l'assurance a quand même été créée
+                if error.localizedDescription.contains("décodage") || error.localizedDescription.contains("decoding") {
+                    // Attendre un peu et recharger les assurances pour vérifier
+                    try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 sec
+                    
+                    do {
+                        let insurances = try await insuranceService.getMyAgencyInsurances()
+                        // Vérifier si une assurance avec ce nom existe (créée récemment)
+                        if insurances.contains(where: { $0.name == request.name }) {
+                            print("✅ Assurance trouvée malgré l'erreur - succès")
+                            await MainActor.run {
+                                self.delegate?.didCreateInsurance()
+                                self.dismiss(animated: true)
+                            }
+                            return
+                        }
+                    } catch {
+                        // Ignore, afficher l'erreur originale ci-dessous
+                    }
+                }
+                
                 await MainActor.run {
                     self.createButton.isEnabled = true
                     self.showError(message: error.localizedDescription)

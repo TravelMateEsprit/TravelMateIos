@@ -310,11 +310,32 @@ class AgencyInsurancesViewController: UIViewController {
         Task {
             do {
                 _ = try await insuranceService.deleteInsurance(id: insurance.id)
+                print("✅ Assurance supprimée avec succès")
                 await MainActor.run {
                     self.loadInsurances()
                     self.showSuccess(message: "Assurance supprimée avec succès")
                 }
             } catch {
+                print("❌ Erreur lors de la suppression: \(error.localizedDescription)")
+                
+                // En cas d'erreur, recharger pour vérifier si la suppression a quand même réussi
+                try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 sec
+                
+                do {
+                    let insurances = try await insuranceService.getMyAgencyInsurances()
+                    // Si l'assurance n'existe plus, c'est un succès
+                    if !insurances.contains(where: { $0.id == insurance.id }) {
+                        print("✅ Suppression réussie malgré l'erreur")
+                        await MainActor.run {
+                            self.loadInsurances()
+                            self.showSuccess(message: "Assurance supprimée avec succès")
+                        }
+                        return
+                    }
+                } catch {
+                    // Ignore
+                }
+                
                 await MainActor.run {
                     self.showError(message: error.localizedDescription)
                 }

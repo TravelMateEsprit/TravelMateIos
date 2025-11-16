@@ -169,11 +169,9 @@ class InsuranceDetailViewController: UIViewController {
             agencyInfoCard.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             agencyInfoCard.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             
-            subscribeButton.topAnchor.constraint(equalTo: agencyInfoCard.bottomAnchor, constant: 20),
             subscribeButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             subscribeButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            subscribeButton.heightAnchor.constraint(equalToConstant: 50),
-            subscribeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
+            subscribeButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
@@ -195,9 +193,21 @@ class InsuranceDetailViewController: UIViewController {
             coverageStackView.addArrangedSubview(coverageView)
         }
         
-        // Agency info
+        // Agency info et position du bouton
         if let agency = insurance.agencyId {
             setupAgencyInfo(agency: agency)
+            // Button après l'agencyInfoCard
+            NSLayoutConstraint.activate([
+                subscribeButton.topAnchor.constraint(equalTo: agencyInfoCard.bottomAnchor, constant: 20),
+                subscribeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
+            ])
+        } else {
+            // Pas d'info agence, cacher la carte et mettre le bouton après headerCard
+            agencyInfoCard.isHidden = true
+            NSLayoutConstraint.activate([
+                subscribeButton.topAnchor.constraint(equalTo: headerCard.bottomAnchor, constant: 20),
+                subscribeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
+            ])
         }
         
         // Subscribe button - seulement pour les utilisateurs
@@ -332,85 +342,76 @@ class InsuranceDetailViewController: UIViewController {
         subscribeButton.setTitle(isSubscribed ? "Désinscription..." : "Inscription...", for: .normal)
         
         Task {
-            var actionSucceeded = false
-            var finalIsSubscribed = isSubscribed
-            var errorMessage = ""
-            
             do {
                 let updatedInsurance: Insurance
                 
                 if isSubscribed {
                     updatedInsurance = try await insuranceService.unsubscribe(insuranceId: insurance.id)
+                    print("✅ Désinscription réussie")
                 } else {
                     updatedInsurance = try await insuranceService.subscribe(insuranceId: insurance.id)
+                    print("✅ Inscription réussie")
                 }
                 
-                // Succès immédiat
+                // Mettre à jour l'assurance locale
                 insurance = updatedInsurance
                 
-                // Vérifier le nouvel état
-                if let userId = AuthService.shared.getCurrentUserId() {
-                    finalIsSubscribed = updatedInsurance.subscribers.contains(userId)
+                // Mise à jour de l'UI
+                await MainActor.run {
+                    self.subscribeButton.isEnabled = true
+                    self.subscribeButton.alpha = 1.0
+                    self.updateSubscribeButton()
+                    self.delegate?.didUpdateInsurance()
                     
-                    // Vérifier que l'action a bien eu l'effet attendu
+                    // Afficher le message de succès selon l'action effectuée
                     if isSubscribed {
-                        // On voulait se désinscrire
-                        actionSucceeded = !finalIsSubscribed
+                        self.showSuccess(message: "Désinscription réussie")
                     } else {
-                        // On voulait s'inscrire  
-                        actionSucceeded = finalIsSubscribed
+                        self.showSuccess(message: "Inscription réussie")
                     }
                 }
                 
             } catch {
-                // En cas d'erreur, on vérifie quand même le résultat
-                print("⚠️ Erreur détectée: \(error.localizedDescription)")
+                print("❌ Erreur: \(error.localizedDescription)")
                 
-                do {
-                    // Recharger l'assurance pour vérifier le vrai statut
-                    let refreshedInsurance = try await insuranceService.getInsurance(id: insurance.id)
-                    insurance = refreshedInsurance
-                    
-                    // Vérifier si l'action a réussi malgré l'erreur
-                    if let userId = AuthService.shared.getCurrentUserId() {
-                        finalIsSubscribed = refreshedInsurance.subscribers.contains(userId)
+                // En cas d'erreur de décodage, recharger pour vérifier le statut réel
+                if error.localizedDescription.contains("décodage") || error.localizedDescription.contains("decoding") {
+                    do {
+                        let refreshedInsurance = try await insuranceService.getInsurance(id: insurance.id)
+                        insurance = refreshedInsurance
                         
-                        if isSubscribed {
-                            // On voulait se désinscrire
-                            actionSucceeded = !finalIsSubscribed  // Succès si on n'est plus inscrit
-                        } else {
-                            // On voulait s'inscrire
-                            actionSucceeded = finalIsSubscribed  // Succès si on est maintenant inscrit
+                        // Vérifier si l'action a quand même réussi
+                        if let userId = AuthService.shared.getCurrentUserId() {
+                            let nowSubscribed = refreshedInsurance.subscribers.contains(userId)
+                            let actionSucceeded = (isSubscribed && !nowSubscribed) || (!isSubscribed && nowSubscribed)
+                            
+                            await MainActor.run {
+                                self.subscribeButton.isEnabled = true
+                                self.subscribeButton.alpha = 1.0
+                                self.updateSubscribeButton()
+                                self.delegate?.didUpdateInsurance()
+                                
+                                if actionSucceeded {
+                                    if isSubscribed {
+                                        self.showSuccess(message: "Désinscription réussie")
+                                    } else {
+                                        self.showSuccess(message: "Inscription réussie")
+                                    }
+                                } else {
+                                    self.showError(message: "L'opération a échoué. Veuillez réessayer.")
+                                }
+                            }
+                            return
                         }
-                        
-                        if !actionSucceeded {
-                            errorMessage = "L'opération a échoué. Veuillez réessayer."
-                        }
+                    } catch {
+                        // Ignore, afficher l'erreur ci-dessous
                     }
-                } catch {
-                    actionSucceeded = false
-                    errorMessage = "Impossible de vérifier le statut. Veuillez vérifier votre connexion."
                 }
-            }
-            
-            // Mise à jour de l'UI avec le bon message
-            await MainActor.run {
-                self.subscribeButton.isEnabled = true
-                self.subscribeButton.alpha = 1.0
-                self.updateSubscribeButton()
-                self.delegate?.didUpdateInsurance()
                 
-                if actionSucceeded {
-                    // Afficher le message selon l'action EFFECTUÉE
-                    if isSubscribed {
-                        // On était inscrit et on s'est désinscrit
-                        self.showSuccess(message: "Désinscription réussie")
-                    } else {
-                        // On n'était pas inscrit et on s'est inscrit
-                        self.showSuccess(message: "Inscription réussie")
-                    }
-                } else {
-                    self.showError(message: errorMessage.isEmpty ? "Une erreur est survenue" : errorMessage)
+                await MainActor.run {
+                    self.subscribeButton.isEnabled = true
+                    self.subscribeButton.alpha = 1.0
+                    self.showError(message: error.localizedDescription)
                 }
             }
         }
