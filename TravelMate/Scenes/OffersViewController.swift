@@ -131,17 +131,7 @@ class OffersViewController: UIViewController {
     }
     
     private func loadOffers() {
-        let offers = [
-            ("Paris - Rome", "Vol + Hôtel 3 nuits", "-40%", "899€", UIColor.systemOrange),
-            ("Marrakech Express", "Week-end tout compris", "-35%", "549€", UIColor.systemRed),
-            ("Lisbonne Découverte", "5 jours / 4 nuits", "-25%", "699€", UIColor.systemPurple),
-            ("Barcelone Beach", "Séjour balnéaire", "-30%", "749€", UIColor.systemTeal)
-        ]
-        
-        for offer in offers {
-            let card = createOfferCard(destination: offer.0, description: offer.1, discount: offer.2, price: offer.3, color: offer.4)
-            offersStackView.addArrangedSubview(card)
-        }
+        // No example voyages - data comes from backend
     }
     
     private func createOfferCard(destination: String, description: String, discount: String, price: String, color: UIColor) -> UIView {

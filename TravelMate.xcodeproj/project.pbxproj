@@ -29,14 +29,15 @@
 		AA0039 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0040 /* Assets.xcassets */; };
 		AA0041 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA0042 /* LaunchScreen.storyboard */; };
 		AA0045 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = AA0044 /* SocketIO */; };
-		AA88A4 /* AgencyDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFF5E /* AgencyDashboardViewController.swift */; };
-		26EA0F4589BD4145805128A5 /* Insurance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DDEFC331A04FC6972FBBD3 /* Insurance.swift */; };
-		07E08165C85747FE961E6143 /* InsuranceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A470F530247640AD9E1CDD75 /* InsuranceService.swift */; };
-		076F498D77AB4CD69B912FAE /* InsuranceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC45E20A5C14EFFBBFFACF9 /* InsuranceDetailViewController.swift */; };
-		DFF6E26F9166414AA0BCB512 /* AgencyInsurancesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D52A5BF19A642308DC70424 /* AgencyInsurancesViewController.swift */; };
-		0A1A2AA08AD146B28C15A8D1 /* CreateInsuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04BBA76CEEA40DD85C4605D /* CreateInsuranceViewController.swift */; };
-		D484EAF5DE984ADEAB509187 /* EditInsuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8808D42F3E4A08B3749D44 /* EditInsuranceViewController.swift */; };
-		339A900200E84B99B7E98ABE /* AgencyInsuranceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3E21B90ED432A9434C3AC /* AgencyInsuranceDetailViewController.swift */; };
+		AA0069 /* VoyageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0070 /* VoyageListViewController.swift */; };
+		AA0071 /* VoyageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0072 /* VoyageDetailViewController.swift */; };
+		AA0073 /* CreateVoyageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0074 /* CreateVoyageViewController.swift */; };
+		AA0075 /* EditVoyageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0076 /* EditVoyageViewController.swift */; };
+		AA0077 /* CreateReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0078 /* CreateReservationViewController.swift */; };
+		AA0079 /* ReservationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0080 /* ReservationListViewController.swift */; };
+		AA0081 /* Voyage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0082 /* Voyage.swift */; };
+		AA0083 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0084 /* Reservation.swift */; };
+		AA0085 /* VoyageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0086 /* VoyageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,14 +64,15 @@
 		AA0040 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA0043 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA0046 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAFF5E /* AgencyDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgencyDashboardViewController.swift; sourceTree = "<group>"; };
-		08DDEFC331A04FC6972FBBD3 /* Insurance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insurance.swift; sourceTree = "<group>"; };
-		A470F530247640AD9E1CDD75 /* InsuranceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceService.swift; sourceTree = "<group>"; };
-		8CC45E20A5C14EFFBBFFACF9 /* InsuranceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceDetailViewController.swift; sourceTree = "<group>"; };
-		7D52A5BF19A642308DC70424 /* AgencyInsurancesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgencyInsurancesViewController.swift; sourceTree = "<group>"; };
-		C04BBA76CEEA40DD85C4605D /* CreateInsuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateInsuranceViewController.swift; sourceTree = "<group>"; };
-		BD8808D42F3E4A08B3749D44 /* EditInsuranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInsuranceViewController.swift; sourceTree = "<group>"; };
-		F4D3E21B90ED432A9434C3AC /* AgencyInsuranceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgencyInsuranceDetailViewController.swift; sourceTree = "<group>"; };
+		AA0070 /* VoyageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyageListViewController.swift; sourceTree = "<group>"; };
+		AA0072 /* VoyageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyageDetailViewController.swift; sourceTree = "<group>"; };
+		AA0074 /* CreateVoyageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateVoyageViewController.swift; sourceTree = "<group>"; };
+		AA0076 /* EditVoyageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVoyageViewController.swift; sourceTree = "<group>"; };
+		AA0078 /* CreateReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReservationViewController.swift; sourceTree = "<group>"; };
+		AA0080 /* ReservationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationListViewController.swift; sourceTree = "<group>"; };
+		AA0082 /* Voyage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voyage.swift; sourceTree = "<group>"; };
+		AA0084 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
+		AA0086 /* VoyageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +117,6 @@
 				AA0006 /* SplashViewController.swift */,
 				AA0008 /* LoginViewController.swift */,
 				AA0010 /* SignupViewController.swift */,
-								AAFF5E /* AgencyDashboardViewController.swift */,
 				AA0012 /* SignupAgencyViewController.swift */,
 				AA0014 /* MainTabBarController.swift */,
 				AA0016 /* HomeViewController.swift */,
@@ -123,12 +124,13 @@
 				AA0020 /* OffersViewController.swift */,
 				AA0022 /* GroupsViewController.swift */,
 				AA0024 /* ProfileViewController.swift */,
-			
-				8CC45E20A5C14EFFBBFFACF9 /* InsuranceDetailViewController.swift */,
-				7D52A5BF19A642308DC70424 /* AgencyInsurancesViewController.swift */,
-				C04BBA76CEEA40DD85C4605D /* CreateInsuranceViewController.swift */,
-				BD8808D42F3E4A08B3749D44 /* EditInsuranceViewController.swift */,
-				F4D3E21B90ED432A9434C3AC /* AgencyInsuranceDetailViewController.swift */,);
+				AA0070 /* VoyageListViewController.swift */,
+				AA0072 /* VoyageDetailViewController.swift */,
+				AA0074 /* CreateVoyageViewController.swift */,
+				AA0076 /* EditVoyageViewController.swift */,
+				AA0078 /* CreateReservationViewController.swift */,
+				AA0080 /* ReservationListViewController.swift */,
+			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
@@ -138,8 +140,8 @@
 				AA0026 /* AuthService.swift */,
 				AA0028 /* NetworkService.swift */,
 				AA0030 /* WebSocketService.swift */,
-			
-				A470F530247640AD9E1CDD75 /* InsuranceService.swift */,);
+				AA0086 /* VoyageService.swift */,
+			);
 			path = Services;
 			sourceTree = "<group>";
 		};
@@ -147,8 +149,9 @@
 			isa = PBXGroup;
 			children = (
 				AA0032 /* User.swift */,
-			
-				08DDEFC331A04FC6972FBBD3 /* Insurance.swift */,);
+				AA0082 /* Voyage.swift */,
+				AA0084 /* Reservation.swift */,
+			);
 			path = Models;
 			sourceTree = "<group>";
 		};
@@ -242,7 +245,7 @@
 			);
 			mainGroup = AA0056;
 			packageReferences = (
-				AA0064 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+				AA0064 /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = AA0057 /* Products */;
 			projectDirPath = "";
@@ -275,7 +278,6 @@
 				AA0005 /* SplashViewController.swift in Sources */,
 				AA0007 /* LoginViewController.swift in Sources */,
 				AA0009 /* SignupViewController.swift in Sources */,
-								AA88A4 /* AgencyDashboardViewController.swift in Sources */,
 				AA0011 /* SignupAgencyViewController.swift in Sources */,
 				AA0013 /* MainTabBarController.swift in Sources */,
 				AA0015 /* HomeViewController.swift in Sources */,
@@ -290,14 +292,16 @@
 				AA0033 /* Config.swift in Sources */,
 				AA0035 /* Extensions.swift in Sources */,
 				AA0037 /* Validators.swift in Sources */,
-			
-				26EA0F4589BD4145805128A5 /* Insurance.swift in Sources */,
-				07E08165C85747FE961E6143 /* InsuranceService.swift in Sources */,
-				076F498D77AB4CD69B912FAE /* InsuranceDetailViewController.swift in Sources */,
-				DFF6E26F9166414AA0BCB512 /* AgencyInsurancesViewController.swift in Sources */,
-				0A1A2AA08AD146B28C15A8D1 /* CreateInsuranceViewController.swift in Sources */,
-				D484EAF5DE984ADEAB509187 /* EditInsuranceViewController.swift in Sources */,
-				339A900200E84B99B7E98ABE /* AgencyInsuranceDetailViewController.swift in Sources */,);
+				AA0069 /* VoyageListViewController.swift in Sources */,
+				AA0071 /* VoyageDetailViewController.swift in Sources */,
+				AA0073 /* CreateVoyageViewController.swift in Sources */,
+				AA0075 /* EditVoyageViewController.swift in Sources */,
+				AA0077 /* CreateReservationViewController.swift in Sources */,
+				AA0079 /* ReservationListViewController.swift in Sources */,
+				AA0081 /* Voyage.swift in Sources */,
+				AA0083 /* Reservation.swift in Sources */,
+				AA0085 /* VoyageService.swift in Sources */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
@@ -521,7 +525,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		AA0064 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+		AA0064 /* XCRemoteSwiftPackageReference "socket" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
 			requirement = {
@@ -534,7 +538,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		AA0044 /* SocketIO */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = AA0064 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			package = AA0064 /* XCRemoteSwiftPackageReference "socket" */;
 			productName = SocketIO;
 		};
 /* End XCSwiftPackageProductDependency section */
