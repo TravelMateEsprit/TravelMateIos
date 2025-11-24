@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     
     private let welcomeLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 32, weight: .bold)
         label.textColor = .white
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -69,8 +69,8 @@ class HomeViewController: UIViewController {
         view.backgroundColor = UIColor(white: 0.97, alpha: 1)
         
         gradientLayer.colors = [
-            UIColor(red: 0.2, green: 0.6, blue: 0.9, alpha: 1.0).cgColor,
-            UIColor(red: 0.1, green: 0.4, blue: 0.7, alpha: 1.0).cgColor
+            UIColor(red: 0.09, green: 0.45, blue: 0.82, alpha: 1.0).cgColor,
+            UIColor(red: 0.40, green: 0.23, blue: 0.72, alpha: 1.0).cgColor
         ]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)

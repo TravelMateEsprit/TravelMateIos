@@ -175,8 +175,8 @@ class SignupViewController: UIViewController {
     
     private func setupUI() {
         gradientLayer.colors = [
-            UIColor(red: 0.2, green: 0.6, blue: 0.9, alpha: 1.0).cgColor,
-            UIColor(red: 0.1, green: 0.4, blue: 0.7, alpha: 1.0).cgColor
+            UIColor(red: 0.09, green: 0.45, blue: 0.82, alpha: 1.0).cgColor,
+            UIColor(red: 0.40, green: 0.23, blue: 0.72, alpha: 1.0).cgColor
         ]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
