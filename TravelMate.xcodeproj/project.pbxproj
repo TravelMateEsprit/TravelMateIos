@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F97E9C22ECD27D800B79C74 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F97E9C12ECD27D800B79C74 /* FilterViewController.swift */; };
+		1FACC3362ECAB93600AC1950 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACC3352ECAB93600AC1950 /* Group.swift */; };
+		1FACC3382ECABA1600AC1950 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACC3372ECABA1600AC1950 /* GroupService.swift */; };
+		1FACC33A2ECABB0500AC1950 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACC3392ECABB0500AC1950 /* GroupsViewController.swift */; };
+		1FACC33C2ECABEA800AC1950 /* GroupCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACC33B2ECABEA800AC1950 /* GroupCardTableViewCell.swift */; };
+		1FACC33E2ECABED600AC1950 /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACC33D2ECABED600AC1950 /* GroupDetailViewController.swift */; };
+		1FACC3402ECABF2A00AC1950 /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACC33F2ECABF2A00AC1950 /* CreateGroupViewController.swift */; };
+		1FACC3422ECABF5900AC1950 /* EditGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACC3412ECABF5900AC1950 /* EditGroupViewController.swift */; };
 		AA0001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002 /* AppDelegate.swift */; };
 		AA0003 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0004 /* SceneDelegate.swift */; };
 		AA0005 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0006 /* SplashViewController.swift */; };
@@ -17,7 +25,6 @@
 		AA0015 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0016 /* HomeViewController.swift */; };
 		AA0017 /* InsurancesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0018 /* InsurancesViewController.swift */; };
 		AA0019 /* OffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0020 /* OffersViewController.swift */; };
-		AA0021 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0022 /* GroupsViewController.swift */; };
 		AA0023 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0024 /* ProfileViewController.swift */; };
 		AA0025 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0026 /* AuthService.swift */; };
 		AA0027 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0028 /* NetworkService.swift */; };
@@ -41,6 +48,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F97E9C12ECD27D800B79C74 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		1FACC3352ECAB93600AC1950 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		1FACC3372ECABA1600AC1950 /* GroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
+		1FACC3392ECABB0500AC1950 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
+		1FACC33B2ECABEA800AC1950 /* GroupCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCardTableViewCell.swift; sourceTree = "<group>"; };
+		1FACC33D2ECABED600AC1950 /* GroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
+		1FACC33F2ECABF2A00AC1950 /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
+		1FACC3412ECABF5900AC1950 /* EditGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewController.swift; sourceTree = "<group>"; };
 		AA0000 /* TravelMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA0004 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +67,6 @@
 		AA0016 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AA0018 /* InsurancesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsurancesViewController.swift; sourceTree = "<group>"; };
 		AA0020 /* OffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersViewController.swift; sourceTree = "<group>"; };
-		AA0022 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		AA0024 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AA0026 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		AA0028 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -122,7 +136,6 @@
 				AA0016 /* HomeViewController.swift */,
 				AA0018 /* InsurancesViewController.swift */,
 				AA0020 /* OffersViewController.swift */,
-				AA0022 /* GroupsViewController.swift */,
 				AA0024 /* ProfileViewController.swift */,
 				AA0070 /* VoyageListViewController.swift */,
 				AA0072 /* VoyageDetailViewController.swift */,
@@ -130,6 +143,12 @@
 				AA0076 /* EditVoyageViewController.swift */,
 				AA0078 /* CreateReservationViewController.swift */,
 				AA0080 /* ReservationListViewController.swift */,
+				1FACC3392ECABB0500AC1950 /* GroupsViewController.swift */,
+				1FACC33B2ECABEA800AC1950 /* GroupCardTableViewCell.swift */,
+				1FACC33D2ECABED600AC1950 /* GroupDetailViewController.swift */,
+				1FACC33F2ECABF2A00AC1950 /* CreateGroupViewController.swift */,
+				1FACC3412ECABF5900AC1950 /* EditGroupViewController.swift */,
+				1F97E9C12ECD27D800B79C74 /* FilterViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -141,6 +160,7 @@
 				AA0028 /* NetworkService.swift */,
 				AA0030 /* WebSocketService.swift */,
 				AA0086 /* VoyageService.swift */,
+				1FACC3372ECABA1600AC1950 /* GroupService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -151,6 +171,7 @@
 				AA0032 /* User.swift */,
 				AA0082 /* Voyage.swift */,
 				AA0084 /* Reservation.swift */,
+				1FACC3352ECAB93600AC1950 /* Group.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,6 +267,7 @@
 			mainGroup = AA0056;
 			packageReferences = (
 				AA0064 /* XCRemoteSwiftPackageReference "socket" */,
+				1F97E9C32ECDC94A00B79C74 /* XCRemoteSwiftPackageReference "stripe-ios" */,
 			);
 			productRefGroup = AA0057 /* Products */;
 			projectDirPath = "";
@@ -273,20 +295,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FACC33C2ECABEA800AC1950 /* GroupCardTableViewCell.swift in Sources */,
 				AA0001 /* AppDelegate.swift in Sources */,
+				1FACC3382ECABA1600AC1950 /* GroupService.swift in Sources */,
 				AA0003 /* SceneDelegate.swift in Sources */,
 				AA0005 /* SplashViewController.swift in Sources */,
 				AA0007 /* LoginViewController.swift in Sources */,
 				AA0009 /* SignupViewController.swift in Sources */,
 				AA0011 /* SignupAgencyViewController.swift in Sources */,
+				1FACC3402ECABF2A00AC1950 /* CreateGroupViewController.swift in Sources */,
 				AA0013 /* MainTabBarController.swift in Sources */,
 				AA0015 /* HomeViewController.swift in Sources */,
 				AA0017 /* InsurancesViewController.swift in Sources */,
 				AA0019 /* OffersViewController.swift in Sources */,
-				AA0021 /* GroupsViewController.swift in Sources */,
 				AA0023 /* ProfileViewController.swift in Sources */,
+				1F97E9C22ECD27D800B79C74 /* FilterViewController.swift in Sources */,
 				AA0025 /* AuthService.swift in Sources */,
 				AA0027 /* NetworkService.swift in Sources */,
+				1FACC3422ECABF5900AC1950 /* EditGroupViewController.swift in Sources */,
+				1FACC33A2ECABB0500AC1950 /* GroupsViewController.swift in Sources */,
 				AA0029 /* WebSocketService.swift in Sources */,
 				AA0031 /* User.swift in Sources */,
 				AA0033 /* Config.swift in Sources */,
@@ -295,6 +322,8 @@
 				AA0069 /* VoyageListViewController.swift in Sources */,
 				AA0071 /* VoyageDetailViewController.swift in Sources */,
 				AA0073 /* CreateVoyageViewController.swift in Sources */,
+				1FACC3362ECAB93600AC1950 /* Group.swift in Sources */,
+				1FACC33E2ECABED600AC1950 /* GroupDetailViewController.swift in Sources */,
 				AA0075 /* EditVoyageViewController.swift in Sources */,
 				AA0077 /* CreateReservationViewController.swift in Sources */,
 				AA0079 /* ReservationListViewController.swift in Sources */,
@@ -525,6 +554,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1F97E9C32ECDC94A00B79C74 /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 25.0.1;
+			};
+		};
 		AA0064 /* XCRemoteSwiftPackageReference "socket" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/socketio/socket.io-client-swift";

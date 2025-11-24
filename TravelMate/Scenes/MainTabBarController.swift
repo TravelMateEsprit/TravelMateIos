@@ -29,6 +29,7 @@ class MainTabBarController: UITabBarController {
             selectedImage: UIImage(systemName: "tag.fill")
         )
         
+        // ✅ NOUVEAU : Onglet Groupes
         let groupsVC = GroupsViewController()
         groupsVC.tabBarItem = UITabBarItem(
             title: "Groupes",
@@ -46,15 +47,16 @@ class MainTabBarController: UITabBarController {
         let homeNav = UINavigationController(rootViewController: homeVC)
         let insurancesNav = UINavigationController(rootViewController: insurancesVC)
         let offersNav = UINavigationController(rootViewController: offersVC)
-        let groupsNav = UINavigationController(rootViewController: groupsVC)
+        let groupsNav = UINavigationController(rootViewController: groupsVC) // ✅ Nouveau
         let profileNav = UINavigationController(rootViewController: profileVC)
         
         setupNavigationBarAppearance(for: homeNav)
         setupNavigationBarAppearance(for: insurancesNav)
         setupNavigationBarAppearance(for: offersNav)
-        setupNavigationBarAppearance(for: groupsNav)
+        setupNavigationBarAppearance(for: groupsNav) // ✅ Nouveau
         setupNavigationBarAppearance(for: profileNav)
         
+        // ✅ Modifié : Ajout de groupsNav
         viewControllers = [homeNav, insurancesNav, offersNav, groupsNav, profileNav]
     }
     
@@ -100,3 +102,4 @@ class MainTabBarController: UITabBarController {
         tabBar.layer.shadowOpacity = 0.1
     }
 }
+

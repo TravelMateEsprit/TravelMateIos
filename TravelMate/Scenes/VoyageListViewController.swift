@@ -1,7 +1,25 @@
 import UIKit
+import Foundation
+
+// MARK: - Sort Option
+extension VoyageListViewController {
+    enum SortOption: String, CaseIterable {
+        case dateAscending = "Date croissante"
+        case dateDescending = "Date décroissante"
+        case priceAscending = "Prix croissant"
+        case priceDescending = "Prix décroissant"
+    }
+}
 
 class VoyageListViewController: UIViewController {
     private let voyageService = VoyageService.shared
+    
+    // Filter properties
+    private var filterButton: UIBarButtonItem!
+    private var currentSortOption: SortOption = .dateAscending
+    private var currentTypeFilter: String? = nil
+    private var minPrice: Double? = nil
+    private var maxPrice: Double? = nil
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -131,6 +149,15 @@ class VoyageListViewController: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
+        // Add filter button
+        filterButton = UIBarButtonItem(
+            image: UIImage(systemName: "line.3.horizontal.decrease.circle"),
+            style: .plain,
+            target: self,
+            action: #selector(filterButtonTapped)
+        )
+        filterButton.tintColor = .systemOrange
+        
         // Add reservations button
         let reservationsButton = UIBarButtonItem(
             image: UIImage(systemName: "calendar"),
@@ -139,7 +166,8 @@ class VoyageListViewController: UIViewController {
             action: #selector(reservationsButtonTapped)
         )
         reservationsButton.tintColor = .systemOrange
-        navigationItem.rightBarButtonItem = reservationsButton
+        
+        navigationItem.rightBarButtonItems = [reservationsButton, filterButton]
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -155,8 +183,61 @@ class VoyageListViewController: UIViewController {
         navigationController?.pushViewController(reservationsVC, animated: true)
     }
     
+    @objc private func filterButtonTapped() {
+        let filterVC = FilterViewController(
+            currentSortOption: currentSortOption,
+            currentTypeFilter: currentTypeFilter,
+            minPrice: minPrice,
+            maxPrice: maxPrice
+        )
+        filterVC.delegate = self
+        let navController = UINavigationController(rootViewController: filterVC)
+        present(navController, animated: true)
+    }
+    
+    private func updateFilterButtonAppearance() {
+        let hasActiveFilters = currentTypeFilter != nil || minPrice != nil || maxPrice != nil
+        let imageName = hasActiveFilters ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease.circle"
+        filterButton.image = UIImage(systemName: imageName)
+    }
+    
+    private func applyFiltersAndSort() {
+        var voyages = voyageService.voyages
+        
+        // Apply type filter
+        if let typeFilter = currentTypeFilter {
+            voyages = voyages.filter { $0.type == typeFilter }
+        }
+        
+        // Apply price filters
+        if let minPrice = minPrice {
+            voyages = voyages.filter { ($0.prix_estime ?? 0) >= minPrice }
+        }
+        if let maxPrice = maxPrice {
+            voyages = voyages.filter { ($0.prix_estime ?? 0) <= maxPrice }
+        }
+        
+        // Apply sorting
+        voyages = voyages.sorted { voyage1, voyage2 in
+            switch currentSortOption {
+            case .dateAscending:
+                return voyage1.date_depart < voyage2.date_depart
+            case .dateDescending:
+                return voyage1.date_depart > voyage2.date_depart
+            case .priceAscending:
+                return (voyage1.prix_estime ?? 0) < (voyage2.prix_estime ?? 0)
+            case .priceDescending:
+                return (voyage1.prix_estime ?? 0) > (voyage2.prix_estime ?? 0)
+            }
+        }
+        
+        self.filteredVoyages = voyages
+        tableView.reloadData()
+        updateEmptyState()
+    }
+    
     private func setupUI() {
-        view.backgroundColor = UIColor(white: 0.95, alpha: 1.0) // Lighter background for ticket contrast
+        view.backgroundColor = UIColor(white: 0.95, alpha: 1.0)
         
         view.addSubview(tableView)
         view.addSubview(loadingIndicator)
@@ -173,7 +254,7 @@ class VoyageListViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             createButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            createButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -80), // Position above tab bar
+            createButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -80),
             createButton.widthAnchor.constraint(equalToConstant: 56),
             createButton.heightAnchor.constraint(equalToConstant: 56),
             
@@ -227,32 +308,126 @@ class VoyageListViewController: UIViewController {
                 self.loadingIndicator.stopAnimating()
                 self.tableView.isHidden = false
                 
-                let voyages = self.isSearching ? self.filteredVoyages : self.voyageService.voyages
-                self.emptyStateView.isHidden = !voyages.isEmpty
-                self.tableView.reloadData()
+                if !self.isSearching {
+                    self.applyFiltersAndSort()
+                } else {
+                    self.filterVoyages(for: self.searchController.searchBar.text ?? "")
+                }
+                self.updateEmptyState()
             }
         }
     }
     
-    private func filterVoyages(for searchText: String) {
-        filteredVoyages = voyageService.voyages.filter { voyage in
-            return voyage.destination.lowercased().contains(searchText.lowercased())
+    private func updateEmptyState() {
+        let count: Int
+        if isSearching {
+            count = filteredVoyages.count
+        } else {
+            if currentTypeFilter != nil || minPrice != nil || maxPrice != nil || currentSortOption != .dateAscending {
+                count = filteredVoyages.count
+            } else {
+                count = voyageService.voyages.count
+            }
         }
+        emptyStateView.isHidden = count > 0
+    }
+    
+    private func filterVoyages(for searchText: String) {
+        var filtered = voyageService.voyages
+        
+        if !searchText.isEmpty {
+            filtered = filtered.filter { voyage in
+                return voyage.destination.lowercased().contains(searchText.lowercased()) ||
+                       (voyage.description?.lowercased().contains(searchText.lowercased()) ?? false)
+            }
+        }
+        
+        if let typeFilter = currentTypeFilter {
+            filtered = filtered.filter { $0.type == typeFilter }
+        }
+        
+        if let minPrice = minPrice {
+            filtered = filtered.filter { ($0.prix_estime ?? 0) >= minPrice }
+        }
+        if let maxPrice = maxPrice {
+            filtered = filtered.filter { ($0.prix_estime ?? 0) <= maxPrice }
+        }
+        
+        // FIX: Use sorted(by:) instead of sort
+        filtered = filtered.sorted { voyage1, voyage2 in
+            switch currentSortOption {
+            case .dateAscending:
+                return voyage1.date_depart < voyage2.date_depart
+            case .dateDescending:
+                return voyage1.date_depart > voyage2.date_depart
+            case .priceAscending:
+                return (voyage1.prix_estime ?? 0) < (voyage2.prix_estime ?? 0)
+            case .priceDescending:
+                return (voyage1.prix_estime ?? 0) > (voyage2.prix_estime ?? 0)
+            }
+        }
+        
+        filteredVoyages = filtered
         tableView.reloadData()
+    }
+}
+
+// MARK: - Filter Delegate
+extension VoyageListViewController: FilterViewControllerDelegate {
+    func didApplyFilters(sortOption: SortOption, typeFilter: String?, minPrice: Double?, maxPrice: Double?) {
+        print("🔍 Filters applied:")
+        print("   Sort: \(sortOption.rawValue)")
+        print("   Type: \(typeFilter ?? "none")")
+        print("   Min Price: \(minPrice ?? 0)")
+        print("   Max Price: \(maxPrice ?? 0)")
+        
+        self.currentSortOption = sortOption
+        self.currentTypeFilter = typeFilter
+        self.minPrice = minPrice
+        self.maxPrice = maxPrice
+        
+        updateFilterButtonAppearance()
+        
+        if isSearching {
+            filterVoyages(for: searchController.searchBar.text ?? "")
+        } else {
+            applyFiltersAndSort()
+        }
+        
+        print("   Result count: \(filteredVoyages.count)")
     }
 }
 
 // MARK: - UITableViewDataSource
 extension VoyageListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let voyages = isSearching ? filteredVoyages : voyageService.voyages
-        return voyages.count
+        if isSearching {
+            return filteredVoyages.count
+        } else {
+            // When not searching, show filtered/sorted voyages if filters are applied
+            if currentTypeFilter != nil || minPrice != nil || maxPrice != nil || currentSortOption != .dateAscending {
+                return filteredVoyages.count
+            }
+            return voyageService.voyages.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VoyageCell", for: indexPath) as! VoyageCardTableViewCell
-        let voyages = isSearching ? filteredVoyages : voyageService.voyages
-        cell.configure(with: voyages[indexPath.row])
+        
+        let voyage: Voyage
+        if isSearching {
+            voyage = filteredVoyages[indexPath.row]
+        } else {
+            // When not searching, show filtered/sorted voyages if filters are applied
+            if currentTypeFilter != nil || minPrice != nil || maxPrice != nil || currentSortOption != .dateAscending {
+                voyage = filteredVoyages[indexPath.row]
+            } else {
+                voyage = voyageService.voyages[indexPath.row]
+            }
+        }
+        
+        cell.configure(with: voyage)
         return cell
     }
 }
@@ -261,15 +436,24 @@ extension VoyageListViewController: UITableViewDataSource {
 extension VoyageListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let voyages = isSearching ? filteredVoyages : voyageService.voyages
-        let voyage = voyages[indexPath.row]
+        
+        let voyage: Voyage
+        if isSearching {
+            voyage = filteredVoyages[indexPath.row]
+        } else {
+            if currentTypeFilter != nil || minPrice != nil || maxPrice != nil || currentSortOption != .dateAscending {
+                voyage = filteredVoyages[indexPath.row]
+            } else {
+                voyage = voyageService.voyages[indexPath.row]
+            }
+        }
         
         let detailVC = VoyageDetailViewController(voyage: voyage)
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200 // Optimized height for new design
+        return 200
     }
 }
 
@@ -281,7 +465,7 @@ extension VoyageListViewController: UISearchResultsUpdating {
     }
 }
 
-// MARK: - VoyageCardTableViewCell (New Professional Flight Ticket Design)
+// MARK: - VoyageCardTableViewCell
 class VoyageCardTableViewCell: UITableViewCell {
     // Main ticket card
     private let cardView: UIView = {
