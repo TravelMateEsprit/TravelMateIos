@@ -1,0 +1,60 @@
+/* Tab Bar Items */
+"tab.home" = "Accueil";
+"tab.voyages" = "Voyages";
+"tab.packs" = "Packs";
+"tab.myPacks" = "Mes Packs";
+"tab.favorites" = "Favoris";
+"tab.reservations" = "Réservations";
+"tab.groups" = "Groupes";
+"tab.insurances" = "Assurances";
+"tab.messages" = "Messages";
+"tab.profile" = "Profil";
+
+/* Profile Page */
+"profile.title" = "Profil";
+"profile.settings" = "Paramètres";
+"profile.logout" = "Se déconnecter";
+"profile.userType.user" = "Utilisateur";
+"profile.userType.agency" = "Agence de voyage";
+"profile.userType.admin" = "Administrateur";
+"profile.status.active" = "Compte Actif";
+"profile.status.pending" = "En attente de vérification";
+"profile.status.suspended" = "Compte Suspendu";
+"profile.logout.title" = "Déconnexion";
+"profile.logout.message" = "Êtes-vous sûr de vouloir vous déconnecter?";
+"profile.logout.confirm" = "Déconnexion";
+"profile.settings.comingSoon" = "Fonctionnalité à venir";
+
+/* Home Page */
+"home.welcome" = "Bonjour,\n%@!";
+"home.welcomeDefault" = "Bienvenue!";
+"home.description" = "Que souhaitez-vous faire aujourd'hui?";
+"home.action.voyages.title" = "Mes Voyages";
+"home.action.voyages.subtitle" = "Gérez vos voyages et réservations";
+"home.action.insurances.title" = "Assurances";
+"home.action.insurances.subtitle" = "Consultez vos assurances voyage";
+"home.action.packs.title" = "Packs Voyages";
+"home.action.packs.subtitle" = "Découvrez nos packs exclusifs";
+"home.action.groups.title" = "Mes Groupes";
+"home.action.groups.subtitle" = "Voyagez en groupe";
+
+/* Common */
+"common.cancel" = "Annuler";
+"common.ok" = "OK";
+"common.save" = "Enregistrer";
+"common.delete" = "Supprimer";
+"common.edit" = "Modifier";
+"common.back" = "Retour";
+"common.next" = "Suivant";
+"common.done" = "Terminé";
+"common.search" = "Rechercher";
+"common.filter" = "Filtrer";
+"common.sort" = "Trier";
+"common.yes" = "Oui";
+"common.no" = "Non";
+
+/* Language Selection */
+"language.title" = "Langue";
+"language.select" = "Sélectionner la langue";
+"language.french" = "Français";
+"language.english" = "English";

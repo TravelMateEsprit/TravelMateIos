@@ -104,4 +104,69 @@ class WebSocketService {
         manager = nil
         socket = nil
     }
+    // MARK: - Public Emit & Listen for any channel (for Packs module)
+
+    func listen(event: String, callback: @escaping ([Any]) -> Void) {
+        socket?.on(event) { data, ack in
+            callback(data)
+        }
+    }
+
+    func emit(event: String, data: [String: Any]) {
+        socket?.emit(event, data)
+    }
+    
+    // MARK: - Chat-Specific Methods
+    
+    /// Join a conversation room
+    func joinConversation(conversationId: String) {
+        socket?.emit("join:conversation", ["conversationId": conversationId])
+        print("📱 Joined conversation: \(conversationId)")
+    }
+    
+    /// Leave a conversation room
+    func leaveConversation(conversationId: String) {
+        socket?.emit("leave:conversation", ["conversationId": conversationId])
+        print("📱 Left conversation: \(conversationId)")
+    }
+    
+    /// Send a message via WebSocket
+    func sendMessage(conversationId: String, content: String) {
+        let data: [String: Any] = [
+            "conversationId": conversationId,
+            "content": content
+        ]
+        socket?.emit("message:send", data)
+    }
+    
+    /// Listen for incoming messages
+    func onMessageReceived(callback: @escaping ([String: Any]) -> Void) {
+        socket?.on("message:received") { data, ack in
+            guard let messageData = data.first as? [String: Any] else { return }
+            callback(messageData)
+        }
+    }
+    
+    /// Listen for typing indicators
+    func onUserTyping(callback: @escaping ([String: Any]) -> Void) {
+        socket?.on("user:typing") { data, ack in
+            guard let typingData = data.first as? [String: Any] else { return }
+            callback(typingData)
+        }
+    }
+    
+    /// Send typing indicator
+    func sendTypingIndicator(conversationId: String, isTyping: Bool) {
+        let data: [String: Any] = [
+            "conversationId": conversationId,
+            "isTyping": isTyping
+        ]
+        socket?.emit("user:typing", data)
+    }
+    
+    /// Remove specific event listener
+    func removeListener(event: String) {
+        socket?.off(event)
+    }
+
 }

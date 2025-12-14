@@ -7,6 +7,88 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09269AF243D56DE3FF0A3547 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57735E276E21C83DF790A9 /* FavoritesViewController.swift */; };
+		0F44C375BD34B37EE6D54237 /* ChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B2653BC0CCFCEEDDFD945C /* ChatBubbleCell.swift */; };
+		10AA4875EA14CA05BAB7F40F /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70151F6A2DCF67B6127E4E8 /* SignupViewController.swift */; };
+		118B322EEC1261C2F35E8F3D /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00DEDD26CB523D53F8A2F9 /* FavoritesManager.swift */; };
+		11B30D4ED54030663FC5D8C1 /* PackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888E30F7D4A6598BC71E54E2 /* PackDetailViewController.swift */; };
+		1656A09A315773E4097E1A04 /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350650659D5B26F602BE457B /* GroupDetailViewController.swift */; };
+		198B42148D48B20DD4F2994C /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991752E3C5653062110EF526 /* CreateGroupViewController.swift */; };
+		1DD4A00A352C58A235D0C337 /* AgencyApplicationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E38A703AE98758313B5C89 /* AgencyApplicationDetailViewController.swift */; };
+		1F3348AF2ED44A8100FD6476 /* ComparisonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3348AE2ED44A8100FD6476 /* ComparisonViewController.swift */; };
+		1F87E1BF2ED9625000BDE947 /* PacksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87E1BE2ED9625000BDE947 /* PacksListViewController.swift */; };
+		1F87E1C12ED9634000BDE947 /* PackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87E1C02ED9634000BDE947 /* PackCell.swift */; };
+		1F87E1C32ED965C800BDE947 /* PackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87E1C22ED965C800BDE947 /* PackService.swift */; };
+		1F87E1C52ED967C400BDE947 /* PackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87E1C42ED967C400BDE947 /* PackDetailViewController.swift */; };
+		1F87E1C72ED969CF00BDE947 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87E1C62ED969CF00BDE947 /* ChatViewController.swift */; };
+		1F87E1C92ED969FF00BDE947 /* ChatBubbleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87E1C82ED969FF00BDE947 /* ChatBubbleCell.swift */; };
+		1F87E1CB2ED99EAE00BDE947 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87E1CA2ED99EAE00BDE947 /* FavoritesManager.swift */; };
+		1F87E1CD2ED9A63600BDE947 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87E1CC2ED9A63600BDE947 /* Offer.swift */; };
+		1F87E1D02EDCBA0F00BDE947 /* PendingRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87E1CF2EDCBA0F00BDE947 /* PendingRequestsViewController.swift */; };
+		1F87E1D22EDCBA3300BDE947 /* PendingRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87E1D12EDCBA3300BDE947 /* PendingRequestCell.swift */; };
+		1F87E1D42EDD965300BDE947 /* AIRecommendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F87E1D32EDD965300BDE947 /* AIRecommendationViewController.swift */; };
+		1F97E9C22ECD27D800B79C74 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F97E9C12ECD27D800B79C74 /* FilterViewController.swift */; };
+		1FACC3362ECAB93600AC1950 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACC3352ECAB93600AC1950 /* Group.swift */; };
+		1FACC3382ECABA1600AC1950 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACC3372ECABA1600AC1950 /* GroupService.swift */; };
+		1FACC33A2ECABB0500AC1950 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACC3392ECABB0500AC1950 /* GroupsViewController.swift */; };
+		1FACC33C2ECABEA800AC1950 /* GroupCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACC33B2ECABEA800AC1950 /* GroupCardTableViewCell.swift */; };
+		1FACC33E2ECABED600AC1950 /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACC33D2ECABED600AC1950 /* GroupDetailViewController.swift */; };
+		1FACC3402ECABF2A00AC1950 /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACC33F2ECABF2A00AC1950 /* CreateGroupViewController.swift */; };
+		1FACC3422ECABF5900AC1950 /* EditGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FACC3412ECABF5900AC1950 /* EditGroupViewController.swift */; };
+		1FC8F6032EE5F3D50056A28F /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC8F6012EE5F3D50056A28F /* UIView+Extensions.swift */; };
+		1FC8F6042EE5F3D50056A28F /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC8F6022EE5F3D50056A28F /* UIColor+Extensions.swift */; };
+		1FDF66CF2EEE3FB1002998BB /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDF66CE2EEE3FB1002998BB /* AppLanguage.swift */; };
+		1FDF66D12EEE3FF2002998BB /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDF66D02EEE3FF2002998BB /* LanguageManager.swift */; };
+		1FDF66D62EEE4309002998BB /* fr.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 1FDF66D42EEE4309002998BB /* fr.lproj */; };
+		1FDF66D72EEE4309002998BB /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 1FDF66D52EEE4309002998BB /* en.lproj */; };
+		20408A8DAF21862077403951 /* ComparisonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229EFDA0E843E699845813C5 /* ComparisonViewController.swift */; };
+		25E01F3F09F089F6D43F88DC /* PackReservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C31984845FA1A662D2FBFF /* PackReservation.swift */; };
+		25FCF9922F148E55DE474E1A /* GroupMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9C5AE33C1C31634666926E /* GroupMessageCell.swift */; };
+		2B1753218DD7FC077FFE2DD1 /* PendingRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFD1B1D6E785532792B1439 /* PendingRequestCell.swift */; };
+		3B29A9FC550357F4DE8DFC78 /* GroupCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B7711A92B116137558F5D1 /* GroupCardTableViewCell.swift */; };
+		3C788DFFEEBE3EA11B2080F1 /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD104C6A57C706F85AAAB64A /* WebSocketService.swift */; };
+		3ED3AC487DAB6AB2629D7C7E /* GroupMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990C0CE2F994B44D8AE53DA0 /* GroupMessage.swift */; };
+		3F7F6754CB4DFEB773D84360 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BCF726D8BB835B88B74792 /* NetworkService.swift */; };
+		446A28C1F0198C9EAE9119BE /* AgencyInsurancesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFB04DEFA769BF077E43C6 /* AgencyInsurancesViewController.swift */; };
+		46F70F0837380073D17FF476 /* InsuranceRatingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF0BAC96AD944D79ECC7F99 /* InsuranceRatingsViewController.swift */; };
+		47B600341F24B277920CB907 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4714802096F62EE902373C3 /* Message.swift */; };
+		49654DD71ACC72A82B6D195F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09E8CC6305392746F985755 /* Extensions.swift */; };
+		4BBD84FBAF4CE86F9A9682F1 /* PackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6F754606FC7C8D145A9BC6 /* PackCell.swift */; };
+		4DA2901195204302BB6F063F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0965BC5703CB0BC4F96B2F3 /* AuthService.swift */; };
+		4E026C5BC81AF5C59593CF73 /* CreateVoyageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB495FEFF97D77738CD041B /* CreateVoyageViewController.swift */; };
+		51054F7A32C15D969B005A47 /* SignupAgencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 869E86C6C3A49D30ADCD5F66 /* SignupAgencyViewController.swift */; };
+		568046BBEB0F4AF2FAAA7ED8 /* ConversationsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028519389543BDDCC624F94A /* ConversationsListViewController.swift */; };
+		5FAD026C0A46A0DED370C550 /* InsuranceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55991A5E66D3F6AE750B4979 /* InsuranceDetailViewController.swift */; };
+		603553ED0AE437E0DF6283F7 /* EditPackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78B070FBB2209EA31F3DCBE /* EditPackViewController.swift */; };
+		60DD6E1E488D32E8345CD5CB /* EditGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49126CF04F89A8D0669F11D /* EditGroupViewController.swift */; };
+		6426D2D827FD801B2BE2168B /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649CEE56238FBE70A0DBA02C /* FilterViewController.swift */; };
+		647AC3773BE4CCE5FC4EBC96 /* MyApplicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44590C9154B1B4D105041D81 /* MyApplicationsViewController.swift */; };
+		6763916C05E460BCA0F42677 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D5232EB842E2EDF7CE047C /* ChatService.swift */; };
+		688285D925DC7E105B11E12B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D10A9E614A8DE21BCD95465 /* Group.swift */; };
+		68CDC7B1971C84AF4849BFB7 /* Voyage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B375DAC823746756C2F938A /* Voyage.swift */; };
+		6A9CB7A2F510C24A9C141A5B /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B1C3A885FB508BF7E0B3F3 /* GroupService.swift */; };
+		6B1C014F69F41F616537B1DD /* InsuranceSearchFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D101E7649022DCA7E1F632D /* InsuranceSearchFilters.swift */; };
+		717EE22B2863B2C565F0CB1B /* AddRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5D36E47A55EDA4A7DE7414 /* AddRatingViewController.swift */; };
+		72A62EABB124C0CD35892E7C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0959728F00558A4D9DBC633 /* MainTabBarController.swift */; };
+		7940CCBE8690552BAC02535C /* AgencyDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF8997D6CE81DC7B7FA4DB7 /* AgencyDashboardViewController.swift */; };
+		7A52CB34D556F7E90DEEA2C0 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB031EA85ABAEAD0ED14AD /* SplashViewController.swift */; };
+		7DB6F8FC18EBBD77C8EBB7C4 /* PendingRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEC0C5A9F4115F4A504F46C /* PendingRequestsViewController.swift */; };
+		8254296242E3AFC12F238294 /* InsuranceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A534987FD3C6FD94D54A4E2 /* InsuranceService.swift */; };
+		82DE40C4B355EB7627167490 /* InsurancesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE4953590F1711CB00EDE83 /* InsurancesViewController.swift */; };
+		854539B16CA0B3F0CBAE5F75 /* ImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA83CB890BF76A646539A25 /* ImageUploadService.swift */; };
+		8A615B3609F9B6412A7E0A6F /* CreateReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F17381BE390981F0D80CEF /* CreateReservationViewController.swift */; };
+		907ABB0C9554E915B08E81D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8299F2302A7B74E824F3B390 /* AppDelegate.swift */; };
+		917348DF7A6B24B54BD15A20 /* UserReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E17B5D3ECFB2211096763F3 /* UserReservationsViewController.swift */; };
+		92B4828253754FFF2580F011 /* OffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF867F60ACCE3F097C1D8BF /* OffersViewController.swift */; };
+		93702700478310911AAEF0A0 /* VoyageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2D814F213A78D827C04A0 /* VoyageService.swift */; };
+		93E18B7356EFE2A2562A2BD1 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A27A26D89FB6A7B43EA425D /* Validators.swift */; };
+		99106DA257348902B5F67F52 /* Insurance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727A72C2E9FCB3AF54AAD31 /* Insurance.swift */; };
+		997461C1D6A197EC512B2FE4 /* GroupChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D614792FD83CE727A1B404A4 /* GroupChatViewController.swift */; };
+		9AF69E48FDA234637B4E3A96 /* PackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E888B7F19FC925278C0F25 /* PackService.swift */; };
+		A2CCB74F4D8097F2D2A18603 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE45900511E0345FC880335D /* GroupsViewController.swift */; };
+		A383070F27AFBD9D1BC0B4A0 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0E75484ABA066B91FD095B /* Config.swift */; };
+		A840C710E7D6D20E8536451A /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A24D8B1957A1AFAA141366 /* FavoritesService.swift */; };
+		A9229D074DEA7844438C1B00 /* EditInsuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B1174D1E7225B5EB3EDE6A /* EditInsuranceViewController.swift */; };
 		AA0001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0002 /* AppDelegate.swift */; };
 		AA0003 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0004 /* SceneDelegate.swift */; };
 		AA0005 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0006 /* SplashViewController.swift */; };
@@ -17,7 +99,6 @@
 		AA0015 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0016 /* HomeViewController.swift */; };
 		AA0017 /* InsurancesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0018 /* InsurancesViewController.swift */; };
 		AA0019 /* OffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0020 /* OffersViewController.swift */; };
-		AA0021 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0022 /* GroupsViewController.swift */; };
 		AA0023 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0024 /* ProfileViewController.swift */; };
 		AA0025 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0026 /* AuthService.swift */; };
 		AA0027 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0028 /* NetworkService.swift */; };
@@ -38,9 +119,142 @@
 		AA0081 /* Voyage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0082 /* Voyage.swift */; };
 		AA0083 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0084 /* Reservation.swift */; };
 		AA0085 /* VoyageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0086 /* VoyageService.swift */; };
+		ADA7E6D35220D663AEBE6599 /* AgencyInsuranceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D483E42CA73868C740E8C93 /* AgencyInsuranceDetailViewController.swift */; };
+		B0F1C1346D865CB81CA77BFD /* PacksBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3643DF88BE4478F1F401CF /* PacksBrowseViewController.swift */; };
+		B2199F9F2DE663C618722271 /* VoyageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7531A370D972CCBDF82B2FC5 /* VoyageDetailViewController.swift */; };
+		B7BBB876EE121635C9FA0A72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CD40BA591F21E8EACBA8C8 /* SceneDelegate.swift */; };
+		B8BDFE996B29AD3EE71EA7EB /* ReservationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4676C5C5B0D71507E0279669 /* ReservationService.swift */; };
+		B9277A394C4F31B3A1390CB0 /* InsuranceApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD070A91C39950E7E4B1F95 /* InsuranceApplication.swift */; };
+		BDA1C2772B68084365160F26 /* AgencyApplicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E2B38D18C79E85B157182F /* AgencyApplicationsViewController.swift */; };
+		BE4CBC36CF6C0C3DCD2170BA /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A980A2F3F8FA1C1D255761 /* Rating.swift */; };
+		BEAD0D4AC4BD6DA524FCBC66 /* VoyageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791A4653B6E314D85CF6DD0 /* VoyageListViewController.swift */; };
+		C0A1B2C3D4E5F60718293A4B /* GroupChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B2C3D4E5F6A7B8C9D0E1F /* GroupChatViewController.swift */; };
+		C0A1B2C3D4E5F60718293A4C /* ImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2C3D4E5F6A7B8C9D0E1F2A /* ImageUploadService.swift */; };
+		C0A1B2C3D4E5F60718293A4D /* GroupChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3D4E5F6A7B8C9D0E1F2A3B /* GroupChatService.swift */; };
+		C0A1B2C3D4E5F60718293A4E /* GroupsSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4E5F6A7B8C9D0E1F2A3B4C /* GroupsSocketService.swift */; };
+		C0A1B2C3D4E5F60718293A4F /* GroupMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5F6A7B8C9D0E1F2A3B4C5D /* GroupMessage.swift */; };
+		C0A1B2C3D4E5F60718293A50 /* GroupMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6A7B8C9D0E1F2A3B4C5D6E /* GroupMessageCell.swift */; };
+		C0A1B2C3D4E5F60718293A51 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7B8C9D0E1F2A3B4C5D6E7F /* FavoritesService.swift */; };
+		C0A1B2C3D4E5F60718293A52 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C9D0E1F2A3B4C5D6E7F8A /* NotificationService.swift */; };
+		C205369C3BC817CD0D47B2AD /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C00DEE5F5657A0C217F9C9B /* ChatViewController.swift */; };
+		C26EC5D92D93C937845BFE29 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AD37B8485E4456936181A /* Offer.swift */; };
+		C90EF4B4351A1C71EE0C9E36 /* PacksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7781B4AB29FC3015CBED3D7 /* PacksListViewController.swift */; };
+		C91B8B140163F2DFC65B3D9D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B8417495AB580AD7840F4B /* ProfileViewController.swift */; };
+		CB50A50DD53BE86FAD9381B2 /* AgencyRatingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7906430C4AA0724B79DE62BE /* AgencyRatingsViewController.swift */; };
+		D0B2CDD7EBAE5C3E4AB05E06 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA23332F48C9A3077D051C2 /* LoginViewController.swift */; };
+		D227A83981839A7914416694 /* EditVoyageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80573AD80CD3EC6B6A4D4354 /* EditVoyageViewController.swift */; };
+		D7AA130A0362E80D464B0018 /* ApplicationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7113EF71E73009D26690A0E /* ApplicationDetailViewController.swift */; };
+		D85ABE837FE1070A4AEC7505 /* CreatePackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6748F32F2C51E4822E6075 /* CreatePackViewController.swift */; };
+		DB72FBF29AD33B872ED31DFA /* AgencyReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2427A75A7AE5721275D82B /* AgencyReservationsViewController.swift */; };
+		DD42CF5D7D074EBFF72C690E /* InsuranceApplicationFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0386AE297CBE58435E9DC43 /* InsuranceApplicationFormViewController.swift */; };
+		E098E799692D62E99907A9DE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8C7042C281AA719EC6BFFF /* HomeViewController.swift */; };
+		E282DBBC4D97A866C1953B9C /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1199313D01B7446C1A939861 /* PaymentService.swift */; };
+		E3019FDD01390F3C17AFE428 /* GroupChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCFD7DE3D9F5D6890478919 /* GroupChatService.swift */; };
+		E6491A923F9BF1A953A02E15 /* GroupsSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC4ADF7FBE87419AA6B4F59 /* GroupsSocketService.swift */; };
+		EA8E8DAD561F7A22D03A9A2D /* CreateInsuranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB765491B50EFCF922B30E80 /* CreateInsuranceViewController.swift */; };
+		EEA84FF113B9639C0BD43E78 /* InsuranceFiltersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482E067C98E9C42AC4421CE /* InsuranceFiltersViewController.swift */; };
+		F3E9942DD5EC153338FE5226 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29675881CC123B4773C5CC47 /* User.swift */; };
+		F3F352102A82BEA71F5D1472 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5892E934193B8E04DAC41347 /* Reservation.swift */; };
+		F4058A8EEDEE5138707D507D /* ReservationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E495C5D0D695AD0326DDB2 /* ReservationListViewController.swift */; };
+		F7D8CEDD8B2D15EE0CA223FE /* AIRecommendationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D25D840005E2632644DDC1B /* AIRecommendationViewController.swift */; };
+		FED9BC0029DCD2A10B986C48 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DEE2221A8F43BAA8A6AC7B /* NotificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		028519389543BDDCC624F94A /* ConversationsListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConversationsListViewController.swift; path = TravelMate/Scenes/ConversationsListViewController.swift; sourceTree = "<group>"; };
+		0482E067C98E9C42AC4421CE /* InsuranceFiltersViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InsuranceFiltersViewController.swift; sourceTree = "<group>"; };
+		04E2D814F213A78D827C04A0 /* VoyageService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VoyageService.swift; sourceTree = "<group>"; };
+		09CD40BA591F21E8EACBA8C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0A534987FD3C6FD94D54A4E2 /* InsuranceService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InsuranceService.swift; sourceTree = "<group>"; };
+		0D101E7649022DCA7E1F632D /* InsuranceSearchFilters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InsuranceSearchFilters.swift; sourceTree = "<group>"; };
+		0E17B5D3ECFB2211096763F3 /* UserReservationsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserReservationsViewController.swift; path = TravelMate/Scenes/UserReservationsViewController.swift; sourceTree = "<group>"; };
+		1199313D01B7446C1A939861 /* PaymentService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaymentService.swift; path = TravelMate/Services/PaymentService.swift; sourceTree = "<group>"; };
+		1A57735E276E21C83DF790A9 /* FavoritesViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FavoritesViewController.swift; path = TravelMate/Scenes/FavoritesViewController.swift; sourceTree = "<group>"; };
+		1AEC0C5A9F4115F4A504F46C /* PendingRequestsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PendingRequestsViewController.swift; sourceTree = "<group>"; };
+		1D10A9E614A8DE21BCD95465 /* Group.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		1D8C7042C281AA719EC6BFFF /* HomeViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1DF0BAC96AD944D79ECC7F99 /* InsuranceRatingsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InsuranceRatingsViewController.swift; sourceTree = "<group>"; };
+		1F3348AE2ED44A8100FD6476 /* ComparisonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonViewController.swift; sourceTree = "<group>"; };
+		1F87E1BE2ED9625000BDE947 /* PacksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacksListViewController.swift; sourceTree = "<group>"; };
+		1F87E1C02ED9634000BDE947 /* PackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackCell.swift; sourceTree = "<group>"; };
+		1F87E1C22ED965C800BDE947 /* PackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackService.swift; sourceTree = "<group>"; };
+		1F87E1C42ED967C400BDE947 /* PackDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackDetailViewController.swift; sourceTree = "<group>"; };
+		1F87E1C62ED969CF00BDE947 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		1F87E1C82ED969FF00BDE947 /* ChatBubbleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleCell.swift; sourceTree = "<group>"; };
+		1F87E1CA2ED99EAE00BDE947 /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
+		1F87E1CC2ED9A63600BDE947 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		1F87E1CF2EDCBA0F00BDE947 /* PendingRequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingRequestsViewController.swift; sourceTree = "<group>"; };
+		1F87E1D12EDCBA3300BDE947 /* PendingRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingRequestCell.swift; sourceTree = "<group>"; };
+		1F87E1D32EDD965300BDE947 /* AIRecommendationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIRecommendationViewController.swift; sourceTree = "<group>"; };
+		1F97E9C12ECD27D800B79C74 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		1FACC3352ECAB93600AC1950 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		1FACC3372ECABA1600AC1950 /* GroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
+		1FACC3392ECABB0500AC1950 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
+		1FACC33B2ECABEA800AC1950 /* GroupCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCardTableViewCell.swift; sourceTree = "<group>"; };
+		1FACC33D2ECABED600AC1950 /* GroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
+		1FACC33F2ECABF2A00AC1950 /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
+		1FACC3412ECABF5900AC1950 /* EditGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGroupViewController.swift; sourceTree = "<group>"; };
+		1FC8F6012EE5F3D50056A28F /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Extensions.swift"; path = "TravelMate/Utils/UIView+Extensions.swift"; sourceTree = "<group>"; };
+		1FC8F6022EE5F3D50056A28F /* UIColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIColor+Extensions.swift"; path = "TravelMate/Utils/UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		1FDF66CE2EEE3FB1002998BB /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
+		1FDF66D02EEE3FF2002998BB /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		1FDF66D42EEE4309002998BB /* fr.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fr.lproj; sourceTree = "<group>"; };
+		1FDF66D52EEE4309002998BB /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = en.lproj; sourceTree = "<group>"; };
+		229EFDA0E843E699845813C5 /* ComparisonViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ComparisonViewController.swift; sourceTree = "<group>"; };
+		24E888B7F19FC925278C0F25 /* PackService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PackService.swift; sourceTree = "<group>"; };
+		26D5232EB842E2EDF7CE047C /* ChatService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChatService.swift; path = TravelMate/Services/ChatService.swift; sourceTree = "<group>"; };
+		29675881CC123B4773C5CC47 /* User.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2A1B2C3D4E5F6A7B8C9D0E1F /* GroupChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatViewController.swift; sourceTree = "<group>"; };
+		2BCFD7DE3D9F5D6890478919 /* GroupChatService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GroupChatService.swift; sourceTree = "<group>"; };
+		2D483E42CA73868C740E8C93 /* AgencyInsuranceDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AgencyInsuranceDetailViewController.swift; sourceTree = "<group>"; };
+		2DF867F60ACCE3F097C1D8BF /* OffersViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OffersViewController.swift; sourceTree = "<group>"; };
+		2F6748F32F2C51E4822E6075 /* CreatePackViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreatePackViewController.swift; path = TravelMate/Scenes/CreatePackViewController.swift; sourceTree = "<group>"; };
+		350650659D5B26F602BE457B /* GroupDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
+		35E495C5D0D695AD0326DDB2 /* ReservationListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReservationListViewController.swift; sourceTree = "<group>"; };
+		39B1C3A885FB508BF7E0B3F3 /* GroupService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
+		3B2C3D4E5F6A7B8C9D0E1F2A /* ImageUploadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
+		3C00DEE5F5657A0C217F9C9B /* ChatViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		44590C9154B1B4D105041D81 /* MyApplicationsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MyApplicationsViewController.swift; sourceTree = "<group>"; };
+		4676C5C5B0D71507E0279669 /* ReservationService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReservationService.swift; path = TravelMate/Services/ReservationService.swift; sourceTree = "<group>"; };
+		4A00DEDD26CB523D53F8A2F9 /* FavoritesManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
+		4B6F754606FC7C8D145A9BC6 /* PackCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PackCell.swift; sourceTree = "<group>"; };
+		4C3D4E5F6A7B8C9D0E1F2A3B /* GroupChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatService.swift; sourceTree = "<group>"; };
+		55991A5E66D3F6AE750B4979 /* InsuranceDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InsuranceDetailViewController.swift; sourceTree = "<group>"; };
+		5727A72C2E9FCB3AF54AAD31 /* Insurance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Insurance.swift; sourceTree = "<group>"; };
+		5892E934193B8E04DAC41347 /* Reservation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
+		5B375DAC823746756C2F938A /* Voyage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Voyage.swift; sourceTree = "<group>"; };
+		5D4E5F6A7B8C9D0E1F2A3B4C /* GroupsSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsSocketService.swift; sourceTree = "<group>"; };
+		5DA23332F48C9A3077D051C2 /* LoginViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		649CEE56238FBE70A0DBA02C /* FilterViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		69F17381BE390981F0D80CEF /* CreateReservationViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateReservationViewController.swift; sourceTree = "<group>"; };
+		6AE4953590F1711CB00EDE83 /* InsurancesViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InsurancesViewController.swift; sourceTree = "<group>"; };
+		6E5F6A7B8C9D0E1F2A3B4C5D /* GroupMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessage.swift; sourceTree = "<group>"; };
+		7531A370D972CCBDF82B2FC5 /* VoyageDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VoyageDetailViewController.swift; sourceTree = "<group>"; };
+		7906430C4AA0724B79DE62BE /* AgencyRatingsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AgencyRatingsViewController.swift; sourceTree = "<group>"; };
+		7A9C5AE33C1C31634666926E /* GroupMessageCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GroupMessageCell.swift; sourceTree = "<group>"; };
+		7F6A7B8C9D0E1F2A3B4C5D6E /* GroupMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageCell.swift; sourceTree = "<group>"; };
+		80573AD80CD3EC6B6A4D4354 /* EditVoyageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditVoyageViewController.swift; sourceTree = "<group>"; };
+		80B1174D1E7225B5EB3EDE6A /* EditInsuranceViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditInsuranceViewController.swift; sourceTree = "<group>"; };
+		8299F2302A7B74E824F3B390 /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		869E86C6C3A49D30ADCD5F66 /* SignupAgencyViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignupAgencyViewController.swift; sourceTree = "<group>"; };
+		87BCF726D8BB835B88B74792 /* NetworkService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		888E30F7D4A6598BC71E54E2 /* PackDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PackDetailViewController.swift; sourceTree = "<group>"; };
+		8A27A26D89FB6A7B43EA425D /* Validators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		8A7B8C9D0E1F2A3B4C5D6E7F /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
+		8ABFB04DEFA769BF077E43C6 /* AgencyInsurancesViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AgencyInsurancesViewController.swift; sourceTree = "<group>"; };
+		8D25D840005E2632644DDC1B /* AIRecommendationViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AIRecommendationViewController.swift; sourceTree = "<group>"; };
+		94C31984845FA1A662D2FBFF /* PackReservation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PackReservation.swift; path = TravelMate/Models/PackReservation.swift; sourceTree = "<group>"; };
+		95DEE2221A8F43BAA8A6AC7B /* NotificationService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		990C0CE2F994B44D8AE53DA0 /* GroupMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GroupMessage.swift; sourceTree = "<group>"; };
+		991752E3C5653062110EF526 /* CreateGroupViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
+		9B8C9D0E1F2A3B4C5D6E7F8A /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		9E0E75484ABA066B91FD095B /* Config.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		A0965BC5703CB0BC4F96B2F3 /* AuthService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		A1E2B38D18C79E85B157182F /* AgencyApplicationsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AgencyApplicationsViewController.swift; sourceTree = "<group>"; };
+		A51AD37B8485E4456936181A /* Offer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		A6B8417495AB580AD7840F4B /* ProfileViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A70151F6A2DCF67B6127E4E8 /* SignupViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		A7781B4AB29FC3015CBED3D7 /* PacksListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PacksListViewController.swift; sourceTree = "<group>"; };
 		AA0000 /* TravelMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0002 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA0004 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +266,6 @@
 		AA0016 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AA0018 /* InsurancesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsurancesViewController.swift; sourceTree = "<group>"; };
 		AA0020 /* OffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersViewController.swift; sourceTree = "<group>"; };
-		AA0022 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		AA0024 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AA0026 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		AA0028 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -73,6 +286,33 @@
 		AA0082 /* Voyage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voyage.swift; sourceTree = "<group>"; };
 		AA0084 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		AA0086 /* VoyageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyageService.swift; sourceTree = "<group>"; };
+		AE45900511E0345FC880335D /* GroupsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
+		B2A980A2F3F8FA1C1D255761 /* Rating.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		B49126CF04F89A8D0669F11D /* EditGroupViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EditGroupViewController.swift; sourceTree = "<group>"; };
+		B7B2653BC0CCFCEEDDFD945C /* ChatBubbleCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ChatBubbleCell.swift; sourceTree = "<group>"; };
+		BA3643DF88BE4478F1F401CF /* PacksBrowseViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PacksBrowseViewController.swift; path = TravelMate/Scenes/PacksBrowseViewController.swift; sourceTree = "<group>"; };
+		BAA83CB890BF76A646539A25 /* ImageUploadService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
+		C0386AE297CBE58435E9DC43 /* InsuranceApplicationFormViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InsuranceApplicationFormViewController.swift; sourceTree = "<group>"; };
+		C0959728F00558A4D9DBC633 /* MainTabBarController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		CCB495FEFF97D77738CD041B /* CreateVoyageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateVoyageViewController.swift; sourceTree = "<group>"; };
+		CCC4ADF7FBE87419AA6B4F59 /* GroupsSocketService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GroupsSocketService.swift; sourceTree = "<group>"; };
+		CCF8997D6CE81DC7B7FA4DB7 /* AgencyDashboardViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AgencyDashboardViewController.swift; sourceTree = "<group>"; };
+		CE5D36E47A55EDA4A7DE7414 /* AddRatingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AddRatingViewController.swift; sourceTree = "<group>"; };
+		D614792FD83CE727A1B404A4 /* GroupChatViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GroupChatViewController.swift; sourceTree = "<group>"; };
+		D791A4653B6E314D85CF6DD0 /* VoyageListViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = VoyageListViewController.swift; sourceTree = "<group>"; };
+		DB765491B50EFCF922B30E80 /* CreateInsuranceViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CreateInsuranceViewController.swift; sourceTree = "<group>"; };
+		DD104C6A57C706F85AAAB64A /* WebSocketService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
+		E09E8CC6305392746F985755 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E1E38A703AE98758313B5C89 /* AgencyApplicationDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AgencyApplicationDetailViewController.swift; sourceTree = "<group>"; };
+		E4714802096F62EE902373C3 /* Message.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Message.swift; path = TravelMate/Models/Message.swift; sourceTree = "<group>"; };
+		E7113EF71E73009D26690A0E /* ApplicationDetailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApplicationDetailViewController.swift; sourceTree = "<group>"; };
+		E78B070FBB2209EA31F3DCBE /* EditPackViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EditPackViewController.swift; path = TravelMate/Scenes/EditPackViewController.swift; sourceTree = "<group>"; };
+		EBEB031EA85ABAEAD0ED14AD /* SplashViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		ECFD1B1D6E785532792B1439 /* PendingRequestCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PendingRequestCell.swift; sourceTree = "<group>"; };
+		EDD070A91C39950E7E4B1F95 /* InsuranceApplication.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InsuranceApplication.swift; sourceTree = "<group>"; };
+		EF2427A75A7AE5721275D82B /* AgencyReservationsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AgencyReservationsViewController.swift; path = TravelMate/Scenes/AgencyReservationsViewController.swift; sourceTree = "<group>"; };
+		F5B7711A92B116137558F5D1 /* GroupCardTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GroupCardTableViewCell.swift; sourceTree = "<group>"; };
+		F7A24D8B1957A1AFAA141366 /* FavoritesService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +327,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040E38C5EB88E2555CEEDBBD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				94C31984845FA1A662D2FBFF /* PackReservation.swift */,
+				E4714802096F62EE902373C3 /* Message.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		AA0048 /* TravelMate */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +356,8 @@
 			children = (
 				AA0002 /* AppDelegate.swift */,
 				AA0004 /* SceneDelegate.swift */,
+				8299F2302A7B74E824F3B390 /* AppDelegate.swift */,
+				09CD40BA591F21E8EACBA8C8 /* SceneDelegate.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -122,7 +373,6 @@
 				AA0016 /* HomeViewController.swift */,
 				AA0018 /* InsurancesViewController.swift */,
 				AA0020 /* OffersViewController.swift */,
-				AA0022 /* GroupsViewController.swift */,
 				AA0024 /* ProfileViewController.swift */,
 				AA0070 /* VoyageListViewController.swift */,
 				AA0072 /* VoyageDetailViewController.swift */,
@@ -130,6 +380,72 @@
 				AA0076 /* EditVoyageViewController.swift */,
 				AA0078 /* CreateReservationViewController.swift */,
 				AA0080 /* ReservationListViewController.swift */,
+				1FACC3392ECABB0500AC1950 /* GroupsViewController.swift */,
+				1FACC33B2ECABEA800AC1950 /* GroupCardTableViewCell.swift */,
+				1FACC33D2ECABED600AC1950 /* GroupDetailViewController.swift */,
+				1FACC33F2ECABF2A00AC1950 /* CreateGroupViewController.swift */,
+				1FACC3412ECABF5900AC1950 /* EditGroupViewController.swift */,
+				1F97E9C12ECD27D800B79C74 /* FilterViewController.swift */,
+				1F3348AE2ED44A8100FD6476 /* ComparisonViewController.swift */,
+				1F87E1BE2ED9625000BDE947 /* PacksListViewController.swift */,
+				1F87E1C02ED9634000BDE947 /* PackCell.swift */,
+				1F87E1C42ED967C400BDE947 /* PackDetailViewController.swift */,
+				1F87E1C62ED969CF00BDE947 /* ChatViewController.swift */,
+				1F87E1C82ED969FF00BDE947 /* ChatBubbleCell.swift */,
+				1F87E1CA2ED99EAE00BDE947 /* FavoritesManager.swift */,
+				1F87E1CF2EDCBA0F00BDE947 /* PendingRequestsViewController.swift */,
+				1F87E1D12EDCBA3300BDE947 /* PendingRequestCell.swift */,
+				1F87E1D32EDD965300BDE947 /* AIRecommendationViewController.swift */,
+				2A1B2C3D4E5F6A7B8C9D0E1F /* GroupChatViewController.swift */,
+				7F6A7B8C9D0E1F2A3B4C5D6E /* GroupMessageCell.swift */,
+				8D25D840005E2632644DDC1B /* AIRecommendationViewController.swift */,
+				CE5D36E47A55EDA4A7DE7414 /* AddRatingViewController.swift */,
+				E1E38A703AE98758313B5C89 /* AgencyApplicationDetailViewController.swift */,
+				A1E2B38D18C79E85B157182F /* AgencyApplicationsViewController.swift */,
+				CCF8997D6CE81DC7B7FA4DB7 /* AgencyDashboardViewController.swift */,
+				2D483E42CA73868C740E8C93 /* AgencyInsuranceDetailViewController.swift */,
+				8ABFB04DEFA769BF077E43C6 /* AgencyInsurancesViewController.swift */,
+				7906430C4AA0724B79DE62BE /* AgencyRatingsViewController.swift */,
+				E7113EF71E73009D26690A0E /* ApplicationDetailViewController.swift */,
+				B7B2653BC0CCFCEEDDFD945C /* ChatBubbleCell.swift */,
+				3C00DEE5F5657A0C217F9C9B /* ChatViewController.swift */,
+				229EFDA0E843E699845813C5 /* ComparisonViewController.swift */,
+				991752E3C5653062110EF526 /* CreateGroupViewController.swift */,
+				DB765491B50EFCF922B30E80 /* CreateInsuranceViewController.swift */,
+				69F17381BE390981F0D80CEF /* CreateReservationViewController.swift */,
+				CCB495FEFF97D77738CD041B /* CreateVoyageViewController.swift */,
+				B49126CF04F89A8D0669F11D /* EditGroupViewController.swift */,
+				80B1174D1E7225B5EB3EDE6A /* EditInsuranceViewController.swift */,
+				80573AD80CD3EC6B6A4D4354 /* EditVoyageViewController.swift */,
+				4A00DEDD26CB523D53F8A2F9 /* FavoritesManager.swift */,
+				649CEE56238FBE70A0DBA02C /* FilterViewController.swift */,
+				F5B7711A92B116137558F5D1 /* GroupCardTableViewCell.swift */,
+				D614792FD83CE727A1B404A4 /* GroupChatViewController.swift */,
+				350650659D5B26F602BE457B /* GroupDetailViewController.swift */,
+				7A9C5AE33C1C31634666926E /* GroupMessageCell.swift */,
+				AE45900511E0345FC880335D /* GroupsViewController.swift */,
+				1D8C7042C281AA719EC6BFFF /* HomeViewController.swift */,
+				C0386AE297CBE58435E9DC43 /* InsuranceApplicationFormViewController.swift */,
+				55991A5E66D3F6AE750B4979 /* InsuranceDetailViewController.swift */,
+				0482E067C98E9C42AC4421CE /* InsuranceFiltersViewController.swift */,
+				1DF0BAC96AD944D79ECC7F99 /* InsuranceRatingsViewController.swift */,
+				6AE4953590F1711CB00EDE83 /* InsurancesViewController.swift */,
+				5DA23332F48C9A3077D051C2 /* LoginViewController.swift */,
+				C0959728F00558A4D9DBC633 /* MainTabBarController.swift */,
+				44590C9154B1B4D105041D81 /* MyApplicationsViewController.swift */,
+				2DF867F60ACCE3F097C1D8BF /* OffersViewController.swift */,
+				4B6F754606FC7C8D145A9BC6 /* PackCell.swift */,
+				888E30F7D4A6598BC71E54E2 /* PackDetailViewController.swift */,
+				A7781B4AB29FC3015CBED3D7 /* PacksListViewController.swift */,
+				ECFD1B1D6E785532792B1439 /* PendingRequestCell.swift */,
+				1AEC0C5A9F4115F4A504F46C /* PendingRequestsViewController.swift */,
+				A6B8417495AB580AD7840F4B /* ProfileViewController.swift */,
+				35E495C5D0D695AD0326DDB2 /* ReservationListViewController.swift */,
+				869E86C6C3A49D30ADCD5F66 /* SignupAgencyViewController.swift */,
+				A70151F6A2DCF67B6127E4E8 /* SignupViewController.swift */,
+				EBEB031EA85ABAEAD0ED14AD /* SplashViewController.swift */,
+				7531A370D972CCBDF82B2FC5 /* VoyageDetailViewController.swift */,
+				D791A4653B6E314D85CF6DD0 /* VoyageListViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -141,6 +457,25 @@
 				AA0028 /* NetworkService.swift */,
 				AA0030 /* WebSocketService.swift */,
 				AA0086 /* VoyageService.swift */,
+				1FACC3372ECABA1600AC1950 /* GroupService.swift */,
+				1F87E1C22ED965C800BDE947 /* PackService.swift */,
+				3B2C3D4E5F6A7B8C9D0E1F2A /* ImageUploadService.swift */,
+				4C3D4E5F6A7B8C9D0E1F2A3B /* GroupChatService.swift */,
+				5D4E5F6A7B8C9D0E1F2A3B4C /* GroupsSocketService.swift */,
+				8A7B8C9D0E1F2A3B4C5D6E7F /* FavoritesService.swift */,
+				9B8C9D0E1F2A3B4C5D6E7F8A /* NotificationService.swift */,
+				A0965BC5703CB0BC4F96B2F3 /* AuthService.swift */,
+				F7A24D8B1957A1AFAA141366 /* FavoritesService.swift */,
+				2BCFD7DE3D9F5D6890478919 /* GroupChatService.swift */,
+				39B1C3A885FB508BF7E0B3F3 /* GroupService.swift */,
+				CCC4ADF7FBE87419AA6B4F59 /* GroupsSocketService.swift */,
+				BAA83CB890BF76A646539A25 /* ImageUploadService.swift */,
+				0A534987FD3C6FD94D54A4E2 /* InsuranceService.swift */,
+				87BCF726D8BB835B88B74792 /* NetworkService.swift */,
+				95DEE2221A8F43BAA8A6AC7B /* NotificationService.swift */,
+				24E888B7F19FC925278C0F25 /* PackService.swift */,
+				04E2D814F213A78D827C04A0 /* VoyageService.swift */,
+				DD104C6A57C706F85AAAB64A /* WebSocketService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -151,6 +486,19 @@
 				AA0032 /* User.swift */,
 				AA0082 /* Voyage.swift */,
 				AA0084 /* Reservation.swift */,
+				1FACC3352ECAB93600AC1950 /* Group.swift */,
+				1F87E1CC2ED9A63600BDE947 /* Offer.swift */,
+				6E5F6A7B8C9D0E1F2A3B4C5D /* GroupMessage.swift */,
+				1D10A9E614A8DE21BCD95465 /* Group.swift */,
+				990C0CE2F994B44D8AE53DA0 /* GroupMessage.swift */,
+				5727A72C2E9FCB3AF54AAD31 /* Insurance.swift */,
+				EDD070A91C39950E7E4B1F95 /* InsuranceApplication.swift */,
+				0D101E7649022DCA7E1F632D /* InsuranceSearchFilters.swift */,
+				A51AD37B8485E4456936181A /* Offer.swift */,
+				B2A980A2F3F8FA1C1D255761 /* Rating.swift */,
+				5892E934193B8E04DAC41347 /* Reservation.swift */,
+				29675881CC123B4773C5CC47 /* User.swift */,
+				5B375DAC823746756C2F938A /* Voyage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -160,6 +508,10 @@
 			children = (
 				AA0036 /* Extensions.swift */,
 				AA0038 /* Validators.swift */,
+				E09E8CC6305392746F985755 /* Extensions.swift */,
+				8A27A26D89FB6A7B43EA425D /* Validators.swift */,
+				1FDF66CE2EEE3FB1002998BB /* AppLanguage.swift */,
+				1FDF66D02EEE3FF2002998BB /* LanguageManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -168,6 +520,7 @@
 			isa = PBXGroup;
 			children = (
 				AA0034 /* Config.swift */,
+				9E0E75484ABA066B91FD095B /* Config.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -175,6 +528,8 @@
 		AA0055 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1FDF66D52EEE4309002998BB /* en.lproj */,
+				1FDF66D42EEE4309002998BB /* fr.lproj */,
 				AA0040 /* Assets.xcassets */,
 				AA0042 /* LaunchScreen.storyboard */,
 			);
@@ -184,8 +539,13 @@
 		AA0056 = {
 			isa = PBXGroup;
 			children = (
+				1FC8F6022EE5F3D50056A28F /* UIColor+Extensions.swift */,
+				1FC8F6012EE5F3D50056A28F /* UIView+Extensions.swift */,
 				AA0048 /* TravelMate */,
 				AA0057 /* Products */,
+				040E38C5EB88E2555CEEDBBD /* Models */,
+				E5D0DA201282643C065AA9DC /* Services */,
+				AA6DE7D75621604E9472899C /* Scenes */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,6 +555,30 @@
 				AA0000 /* TravelMate.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AA6DE7D75621604E9472899C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				BA3643DF88BE4478F1F401CF /* PacksBrowseViewController.swift */,
+				1A57735E276E21C83DF790A9 /* FavoritesViewController.swift */,
+				0E17B5D3ECFB2211096763F3 /* UserReservationsViewController.swift */,
+				EF2427A75A7AE5721275D82B /* AgencyReservationsViewController.swift */,
+				028519389543BDDCC624F94A /* ConversationsListViewController.swift */,
+				2F6748F32F2C51E4822E6075 /* CreatePackViewController.swift */,
+				E78B070FBB2209EA31F3DCBE /* EditPackViewController.swift */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		E5D0DA201282643C065AA9DC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4676C5C5B0D71507E0279669 /* ReservationService.swift */,
+				26D5232EB842E2EDF7CE047C /* ChatService.swift */,
+				1199313D01B7446C1A939861 /* PaymentService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +630,7 @@
 			mainGroup = AA0056;
 			packageReferences = (
 				AA0064 /* XCRemoteSwiftPackageReference "socket" */,
+				1F97E9C32ECDC94A00B79C74 /* XCRemoteSwiftPackageReference "stripe-ios" */,
 			);
 			productRefGroup = AA0057 /* Products */;
 			projectDirPath = "";
@@ -261,7 +646,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FDF66D72EEE4309002998BB /* en.lproj in Resources */,
 				AA0041 /* LaunchScreen.storyboard in Resources */,
+				1FDF66D62EEE4309002998BB /* fr.lproj in Resources */,
 				AA0039 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,34 +660,152 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FACC33C2ECABEA800AC1950 /* GroupCardTableViewCell.swift in Sources */,
 				AA0001 /* AppDelegate.swift in Sources */,
+				1FACC3382ECABA1600AC1950 /* GroupService.swift in Sources */,
+				1FC8F6042EE5F3D50056A28F /* UIColor+Extensions.swift in Sources */,
 				AA0003 /* SceneDelegate.swift in Sources */,
 				AA0005 /* SplashViewController.swift in Sources */,
 				AA0007 /* LoginViewController.swift in Sources */,
 				AA0009 /* SignupViewController.swift in Sources */,
 				AA0011 /* SignupAgencyViewController.swift in Sources */,
+				1FACC3402ECABF2A00AC1950 /* CreateGroupViewController.swift in Sources */,
 				AA0013 /* MainTabBarController.swift in Sources */,
+				1F87E1C32ED965C800BDE947 /* PackService.swift in Sources */,
 				AA0015 /* HomeViewController.swift in Sources */,
+				1F87E1BF2ED9625000BDE947 /* PacksListViewController.swift in Sources */,
+				1F3348AF2ED44A8100FD6476 /* ComparisonViewController.swift in Sources */,
 				AA0017 /* InsurancesViewController.swift in Sources */,
 				AA0019 /* OffersViewController.swift in Sources */,
-				AA0021 /* GroupsViewController.swift in Sources */,
 				AA0023 /* ProfileViewController.swift in Sources */,
+				1F97E9C22ECD27D800B79C74 /* FilterViewController.swift in Sources */,
 				AA0025 /* AuthService.swift in Sources */,
 				AA0027 /* NetworkService.swift in Sources */,
+				1FACC3422ECABF5900AC1950 /* EditGroupViewController.swift in Sources */,
+				1FACC33A2ECABB0500AC1950 /* GroupsViewController.swift in Sources */,
 				AA0029 /* WebSocketService.swift in Sources */,
 				AA0031 /* User.swift in Sources */,
 				AA0033 /* Config.swift in Sources */,
+				1F87E1C92ED969FF00BDE947 /* ChatBubbleCell.swift in Sources */,
+				1FDF66CF2EEE3FB1002998BB /* AppLanguage.swift in Sources */,
+				1F87E1CB2ED99EAE00BDE947 /* FavoritesManager.swift in Sources */,
 				AA0035 /* Extensions.swift in Sources */,
 				AA0037 /* Validators.swift in Sources */,
 				AA0069 /* VoyageListViewController.swift in Sources */,
+				1F87E1C52ED967C400BDE947 /* PackDetailViewController.swift in Sources */,
 				AA0071 /* VoyageDetailViewController.swift in Sources */,
 				AA0073 /* CreateVoyageViewController.swift in Sources */,
+				1FACC3362ECAB93600AC1950 /* Group.swift in Sources */,
+				1F87E1C12ED9634000BDE947 /* PackCell.swift in Sources */,
+				1F87E1D22EDCBA3300BDE947 /* PendingRequestCell.swift in Sources */,
+				1FACC33E2ECABED600AC1950 /* GroupDetailViewController.swift in Sources */,
+				1FDF66D12EEE3FF2002998BB /* LanguageManager.swift in Sources */,
+				1F87E1D02EDCBA0F00BDE947 /* PendingRequestsViewController.swift in Sources */,
 				AA0075 /* EditVoyageViewController.swift in Sources */,
 				AA0077 /* CreateReservationViewController.swift in Sources */,
 				AA0079 /* ReservationListViewController.swift in Sources */,
+				1F87E1C72ED969CF00BDE947 /* ChatViewController.swift in Sources */,
+				1FC8F6032EE5F3D50056A28F /* UIView+Extensions.swift in Sources */,
+				1F87E1CD2ED9A63600BDE947 /* Offer.swift in Sources */,
 				AA0081 /* Voyage.swift in Sources */,
 				AA0083 /* Reservation.swift in Sources */,
+				1F87E1D42EDD965300BDE947 /* AIRecommendationViewController.swift in Sources */,
 				AA0085 /* VoyageService.swift in Sources */,
+				25E01F3F09F089F6D43F88DC /* PackReservation.swift in Sources */,
+				47B600341F24B277920CB907 /* Message.swift in Sources */,
+				B8BDFE996B29AD3EE71EA7EB /* ReservationService.swift in Sources */,
+				6763916C05E460BCA0F42677 /* ChatService.swift in Sources */,
+				B0F1C1346D865CB81CA77BFD /* PacksBrowseViewController.swift in Sources */,
+				09269AF243D56DE3FF0A3547 /* FavoritesViewController.swift in Sources */,
+				917348DF7A6B24B54BD15A20 /* UserReservationsViewController.swift in Sources */,
+				DB72FBF29AD33B872ED31DFA /* AgencyReservationsViewController.swift in Sources */,
+				568046BBEB0F4AF2FAAA7ED8 /* ConversationsListViewController.swift in Sources */,
+				D85ABE837FE1070A4AEC7505 /* CreatePackViewController.swift in Sources */,
+				603553ED0AE437E0DF6283F7 /* EditPackViewController.swift in Sources */,
+				E282DBBC4D97A866C1953B9C /* PaymentService.swift in Sources */,
+				C0A1B2C3D4E5F60718293A4B /* GroupChatViewController.swift in Sources */,
+				C0A1B2C3D4E5F60718293A4C /* ImageUploadService.swift in Sources */,
+				C0A1B2C3D4E5F60718293A4D /* GroupChatService.swift in Sources */,
+				C0A1B2C3D4E5F60718293A4E /* GroupsSocketService.swift in Sources */,
+				C0A1B2C3D4E5F60718293A4F /* GroupMessage.swift in Sources */,
+				C0A1B2C3D4E5F60718293A50 /* GroupMessageCell.swift in Sources */,
+				C0A1B2C3D4E5F60718293A51 /* FavoritesService.swift in Sources */,
+				C0A1B2C3D4E5F60718293A52 /* NotificationService.swift in Sources */,
+				907ABB0C9554E915B08E81D2 /* AppDelegate.swift in Sources */,
+				B7BBB876EE121635C9FA0A72 /* SceneDelegate.swift in Sources */,
+				A383070F27AFBD9D1BC0B4A0 /* Config.swift in Sources */,
+				688285D925DC7E105B11E12B /* Group.swift in Sources */,
+				3ED3AC487DAB6AB2629D7C7E /* GroupMessage.swift in Sources */,
+				99106DA257348902B5F67F52 /* Insurance.swift in Sources */,
+				B9277A394C4F31B3A1390CB0 /* InsuranceApplication.swift in Sources */,
+				6B1C014F69F41F616537B1DD /* InsuranceSearchFilters.swift in Sources */,
+				C26EC5D92D93C937845BFE29 /* Offer.swift in Sources */,
+				BE4CBC36CF6C0C3DCD2170BA /* Rating.swift in Sources */,
+				F3F352102A82BEA71F5D1472 /* Reservation.swift in Sources */,
+				F3E9942DD5EC153338FE5226 /* User.swift in Sources */,
+				68CDC7B1971C84AF4849BFB7 /* Voyage.swift in Sources */,
+				F7D8CEDD8B2D15EE0CA223FE /* AIRecommendationViewController.swift in Sources */,
+				717EE22B2863B2C565F0CB1B /* AddRatingViewController.swift in Sources */,
+				1DD4A00A352C58A235D0C337 /* AgencyApplicationDetailViewController.swift in Sources */,
+				BDA1C2772B68084365160F26 /* AgencyApplicationsViewController.swift in Sources */,
+				7940CCBE8690552BAC02535C /* AgencyDashboardViewController.swift in Sources */,
+				ADA7E6D35220D663AEBE6599 /* AgencyInsuranceDetailViewController.swift in Sources */,
+				446A28C1F0198C9EAE9119BE /* AgencyInsurancesViewController.swift in Sources */,
+				CB50A50DD53BE86FAD9381B2 /* AgencyRatingsViewController.swift in Sources */,
+				D7AA130A0362E80D464B0018 /* ApplicationDetailViewController.swift in Sources */,
+				0F44C375BD34B37EE6D54237 /* ChatBubbleCell.swift in Sources */,
+				C205369C3BC817CD0D47B2AD /* ChatViewController.swift in Sources */,
+				20408A8DAF21862077403951 /* ComparisonViewController.swift in Sources */,
+				198B42148D48B20DD4F2994C /* CreateGroupViewController.swift in Sources */,
+				EA8E8DAD561F7A22D03A9A2D /* CreateInsuranceViewController.swift in Sources */,
+				8A615B3609F9B6412A7E0A6F /* CreateReservationViewController.swift in Sources */,
+				4E026C5BC81AF5C59593CF73 /* CreateVoyageViewController.swift in Sources */,
+				60DD6E1E488D32E8345CD5CB /* EditGroupViewController.swift in Sources */,
+				A9229D074DEA7844438C1B00 /* EditInsuranceViewController.swift in Sources */,
+				D227A83981839A7914416694 /* EditVoyageViewController.swift in Sources */,
+				118B322EEC1261C2F35E8F3D /* FavoritesManager.swift in Sources */,
+				6426D2D827FD801B2BE2168B /* FilterViewController.swift in Sources */,
+				3B29A9FC550357F4DE8DFC78 /* GroupCardTableViewCell.swift in Sources */,
+				997461C1D6A197EC512B2FE4 /* GroupChatViewController.swift in Sources */,
+				1656A09A315773E4097E1A04 /* GroupDetailViewController.swift in Sources */,
+				25FCF9922F148E55DE474E1A /* GroupMessageCell.swift in Sources */,
+				A2CCB74F4D8097F2D2A18603 /* GroupsViewController.swift in Sources */,
+				E098E799692D62E99907A9DE /* HomeViewController.swift in Sources */,
+				DD42CF5D7D074EBFF72C690E /* InsuranceApplicationFormViewController.swift in Sources */,
+				5FAD026C0A46A0DED370C550 /* InsuranceDetailViewController.swift in Sources */,
+				EEA84FF113B9639C0BD43E78 /* InsuranceFiltersViewController.swift in Sources */,
+				46F70F0837380073D17FF476 /* InsuranceRatingsViewController.swift in Sources */,
+				82DE40C4B355EB7627167490 /* InsurancesViewController.swift in Sources */,
+				D0B2CDD7EBAE5C3E4AB05E06 /* LoginViewController.swift in Sources */,
+				72A62EABB124C0CD35892E7C /* MainTabBarController.swift in Sources */,
+				647AC3773BE4CCE5FC4EBC96 /* MyApplicationsViewController.swift in Sources */,
+				92B4828253754FFF2580F011 /* OffersViewController.swift in Sources */,
+				4BBD84FBAF4CE86F9A9682F1 /* PackCell.swift in Sources */,
+				11B30D4ED54030663FC5D8C1 /* PackDetailViewController.swift in Sources */,
+				C90EF4B4351A1C71EE0C9E36 /* PacksListViewController.swift in Sources */,
+				2B1753218DD7FC077FFE2DD1 /* PendingRequestCell.swift in Sources */,
+				7DB6F8FC18EBBD77C8EBB7C4 /* PendingRequestsViewController.swift in Sources */,
+				C91B8B140163F2DFC65B3D9D /* ProfileViewController.swift in Sources */,
+				F4058A8EEDEE5138707D507D /* ReservationListViewController.swift in Sources */,
+				51054F7A32C15D969B005A47 /* SignupAgencyViewController.swift in Sources */,
+				10AA4875EA14CA05BAB7F40F /* SignupViewController.swift in Sources */,
+				7A52CB34D556F7E90DEEA2C0 /* SplashViewController.swift in Sources */,
+				B2199F9F2DE663C618722271 /* VoyageDetailViewController.swift in Sources */,
+				BEAD0D4AC4BD6DA524FCBC66 /* VoyageListViewController.swift in Sources */,
+				4DA2901195204302BB6F063F /* AuthService.swift in Sources */,
+				A840C710E7D6D20E8536451A /* FavoritesService.swift in Sources */,
+				E3019FDD01390F3C17AFE428 /* GroupChatService.swift in Sources */,
+				6A9CB7A2F510C24A9C141A5B /* GroupService.swift in Sources */,
+				E6491A923F9BF1A953A02E15 /* GroupsSocketService.swift in Sources */,
+				854539B16CA0B3F0CBAE5F75 /* ImageUploadService.swift in Sources */,
+				8254296242E3AFC12F238294 /* InsuranceService.swift in Sources */,
+				3F7F6754CB4DFEB773D84360 /* NetworkService.swift in Sources */,
+				FED9BC0029DCD2A10B986C48 /* NotificationService.swift in Sources */,
+				9AF69E48FDA234637B4E3A96 /* PackService.swift in Sources */,
+				93702700478310911AAEF0A0 /* VoyageService.swift in Sources */,
+				3C788DFFEEBE3EA11B2080F1 /* WebSocketService.swift in Sources */,
+				49654DD71ACC72A82B6D195F /* Extensions.swift in Sources */,
+				93E18B7356EFE2A2562A2BD1 /* Validators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +1030,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1F97E9C32ECDC94A00B79C74 /* XCRemoteSwiftPackageReference "stripe-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stripe/stripe-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 25.0.1;
+			};
+		};
 		AA0064 /* XCRemoteSwiftPackageReference "socket" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/socketio/socket.io-client-swift";

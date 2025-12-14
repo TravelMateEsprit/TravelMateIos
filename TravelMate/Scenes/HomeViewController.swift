@@ -33,7 +33,7 @@ class HomeViewController: UIViewController {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Que souhaitez-vous faire aujourd'hui?"
+        label.text = localized("home.description")
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.textColor = .white.withAlphaComponent(0.9)
         label.numberOfLines = 0
@@ -53,6 +53,34 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         updateWelcomeMessage()
+        
+        // Observe language changes
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(languageDidChange),
+            name: LanguageManager.languageDidChangeNotification,
+            object: nil
+        )
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func languageDidChange() {
+        refreshUI()
+    }
+    
+    private func refreshUI() {
+        // Update description label
+        descriptionLabel.text = localized("home.description")
+        
+        // Update welcome message
+        updateWelcomeMessage()
+        
+        // Recreate quick actions with new language
+        quickActionsStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        setupQuickActions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,19 +147,32 @@ class HomeViewController: UIViewController {
     
     private func setupQuickActions() {
         let actions = [
-            ("airplane", "Mes Voyages", "Gérez vos voyages et réservations", UIColor.systemBlue),
-            ("shield.fill", "Assurances", "Consultez vos assurances voyage", UIColor.systemGreen),
-            ("tag.fill", "Offres Spéciales", "Découvrez nos meilleures offres", UIColor.systemOrange),
-            ("person.3.fill", "Mes Groupes", "Voyagez en groupe", UIColor.systemPurple)
+            ("airplane", localized("home.action.voyages.title"), localized("home.action.voyages.subtitle"), UIColor.systemBlue),
+            ("shield.fill", localized("home.action.insurances.title"), localized("home.action.insurances.subtitle"), UIColor.systemGreen),
+            ("tag.fill", localized("home.action.packs.title"), localized("home.action.packs.subtitle"), UIColor.systemOrange),
+            ("person.3.fill", localized("home.action.groups.title"), localized("home.action.groups.subtitle"), UIColor.systemPurple)
         ]
         
         for (index, action) in actions.enumerated() {
-            let card = createActionCard(icon: action.0, title: action.1, subtitle: action.2, color: action.3, tag: index)
+            let card = createActionCard(
+                icon: action.0,
+                title: action.1,
+                subtitle: action.2,
+                color: action.3,
+                tag: index
+            )
             quickActionsStackView.addArrangedSubview(card)
         }
     }
     
-    private func createActionCard(icon: String, title: String, subtitle: String, color: UIColor, tag: Int) -> UIView {
+    private func createActionCard(
+        icon: String,
+        title: String,
+        subtitle: String,
+        color: UIColor,
+        tag: Int
+    ) -> UIView {
+        
         let container = UIView()
         container.backgroundColor = .white
         container.layer.cornerRadius = 16
@@ -159,14 +200,13 @@ class HomeViewController: UIViewController {
         
         let subtitleLabel = UILabel()
         subtitleLabel.text = subtitle
-        subtitleLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        subtitleLabel.font = UIFont.systemFont(ofSize: 14)
         subtitleLabel.textColor = .systemGray
         subtitleLabel.numberOfLines = 2
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         let chevronView = UIImageView(image: UIImage(systemName: "chevron.right"))
         chevronView.tintColor = .systemGray3
-        chevronView.contentMode = .scaleAspectFit
         chevronView.translatesAutoresizingMaskIntoConstraints = false
         
         iconContainerView.addSubview(iconView)
@@ -195,7 +235,6 @@ class HomeViewController: UIViewController {
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             subtitleLabel.leadingAnchor.constraint(equalTo: iconContainerView.trailingAnchor, constant: 16),
             subtitleLabel.trailingAnchor.constraint(equalTo: chevronView.leadingAnchor, constant: -8),
-            subtitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: container.bottomAnchor, constant: -20),
             
             chevronView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -16),
             chevronView.centerYAnchor.constraint(equalTo: container.centerYAnchor),
@@ -203,32 +242,41 @@ class HomeViewController: UIViewController {
             chevronView.heightAnchor.constraint(equalToConstant: 20)
         ])
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleCardTap(_:)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleCardTap(_:)))
         container.tag = tag
-        container.addGestureRecognizer(tapGesture)
+        container.addGestureRecognizer(tap)
         
         return container
     }
     
+    // MARK: - Navigation for cards
     @objc private func handleCardTap(_ gesture: UITapGestureRecognizer) {
         guard let view = gesture.view else { return }
         
-        UIView.animate(withDuration: 0.1, animations: {
-            view.transform = CGAffineTransform(scaleX: 0.97, y: 0.97)
-        }) { _ in
-            UIView.animate(withDuration: 0.1) {
-                view.transform = .identity
-            }
+        UIView.animate(withDuration: 0.1) { view.transform = CGAffineTransform(scaleX: 0.97, y: 0.97) } completion: { _ in
+            UIView.animate(withDuration: 0.1) { view.transform = .identity }
         }
         
-        tabBarController?.selectedIndex = view.tag + 1
+        // 🔥 Correct navigation
+        switch view.tag {
+        case 0:
+            tabBarController?.selectedIndex = 2   // Mes Voyages (VoyageListViewController)
+        case 1:
+            tabBarController?.selectedIndex = 1   // Assurances
+        case 2:
+            tabBarController?.selectedIndex = 2   // ⭐ Packs Voyages (ton module)
+        case 3:
+            tabBarController?.selectedIndex = 3   // Mes Groupes
+        default:
+            break
+        }
     }
     
     private func updateWelcomeMessage() {
         if let user = AuthService.shared.currentUser {
-            welcomeLabel.text = "Bonjour,\n\(user.name)!"
+            welcomeLabel.text = String(format: localized("home.welcome"), user.name)
         } else {
-            welcomeLabel.text = "Bienvenue!"
+            welcomeLabel.text = localized("home.welcomeDefault")
         }
     }
 }

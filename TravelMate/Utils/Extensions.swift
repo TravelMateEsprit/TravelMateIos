@@ -9,8 +9,39 @@ extension UIViewController {
         present(alert, animated: true)
     }
     
+    func showError(message: String) {
+        showModernAlert(title: "Erreur", message: message, type: .info)
+    }
+    
     func showError(_ error: Error) {
-        showAlert(title: "Erreur", message: error.localizedDescription)
+        showModernAlert(title: "Erreur", message: error.localizedDescription, type: .info)
+    }
+    
+    func showSuccess(message: String, completion: (() -> Void)? = nil) {
+        showModernAlert(title: "Succès", message: message, type: .success, completion: completion)
+    }
+    
+    func showModernAlert(title: String, message: String, type: AlertType = .info, completion: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.view.tintColor = type.color
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            completion?()
+        })
+        
+        present(alert, animated: true)
+    }
+    
+    func showConfirmation(title: String, message: String, confirmTitle: String = "Confirmer", cancelTitle: String = "Annuler", onConfirm: @escaping () -> Void) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: cancelTitle, style: .cancel))
+        alert.addAction(UIAlertAction(title: confirmTitle, style: .default) { _ in
+            onConfirm()
+        })
+        
+        present(alert, animated: true)
     }
     
     func showLoading() -> UIAlertController {
@@ -18,10 +49,25 @@ extension UIViewController {
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.style = .medium
+        loadingIndicator.color = .primaryColor
         loadingIndicator.startAnimating()
         alert.view.addSubview(loadingIndicator)
         present(alert, animated: true)
         return alert
+    }
+}
+
+enum AlertType {
+    case success
+    case warning
+    case info
+    
+    var color: UIColor {
+        switch self {
+        case .success: return .successColor
+        case .warning: return .warningColor
+        case .info: return .infoColor
+        }
     }
 }
 
@@ -35,9 +81,44 @@ extension UITextField {
         self.rightView = rightView
         self.rightViewMode = .always
     }
+    
+    func styleModern() {
+        layer.cornerRadius = 12
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.borderColor.cgColor
+        backgroundColor = .surfaceColor
+        font = UIFont.systemFont(ofSize: 16)
+        textColor = .textPrimary
+        addPadding(left: 16, right: 16)
+    }
 }
 
-extension UIColor {
-    static let primaryColor = UIColor(red: 0.2, green: 0.6, blue: 0.86, alpha: 1.0)
-    static let secondaryColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
+extension UIButton {
+    func stylePrimary() {
+        backgroundColor = .primaryColor
+        setTitleColor(.textLight, for: .normal)
+        layer.cornerRadius = 12
+        titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        layer.shadowColor = UIColor.primaryColor.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 4)
+        layer.shadowRadius = 8
+        layer.shadowOpacity = 0.3
+    }
+    
+    func styleSecondary() {
+        backgroundColor = .surfaceColor
+        setTitleColor(.primaryColor, for: .normal)
+        layer.cornerRadius = 12
+        layer.borderWidth = 1.5
+        layer.borderColor = UIColor.primaryColor.cgColor
+        titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+    }
+    
+    func styleCancel() {
+        backgroundColor = .backgroundLight
+        setTitleColor(.textSecondary, for: .normal)
+        layer.cornerRadius = 12
+        titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+    }
 }
+

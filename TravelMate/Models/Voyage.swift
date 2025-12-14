@@ -271,5 +271,45 @@ extension Voyage {
         default: return type.capitalized
         }
     }
+    
+    // MARK: - Comparison Logic
+    /// Calculate duration in seconds
+    func duration() -> TimeInterval? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        
+        guard let departDate = formatter.date(from: date_depart),
+              let returnDate = formatter.date(from: date_retour) else {
+            return nil
+        }
+        
+        return returnDate.timeIntervalSince(departDate)
+    }
+    
+    /// Format duration as "X days Y hours"
+    func formattedDuration() -> String {
+        guard let duration = duration() else {
+            return "N/A"
+        }
+        
+        let days = Int(duration / 86400)  // 86400 seconds in a day
+        let hours = Int((duration.truncatingRemainder(dividingBy: 86400)) / 3600)
+        
+        if days > 0 {
+            if hours > 0 {
+                return "\(days)d \(hours)h"
+            } else {
+                return "\(days)d"
+            }
+        } else if hours > 0 {
+            return "\(hours)h"
+        } else {
+            let minutes = Int((duration.truncatingRemainder(dividingBy: 3600)) / 60)
+            if minutes > 0 {
+                return "\(minutes)min"
+            } else {
+                return "0min"
+            }
+        }
+    }
 }
-

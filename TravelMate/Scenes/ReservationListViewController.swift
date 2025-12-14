@@ -160,7 +160,7 @@ class ReservationListViewController: UIViewController {
                 }
                 
                 await MainActor.run {
-                    self.showError(message: "Impossible de charger les réservations. Veuillez vérifier votre connexion et réessayer.")
+                    self.displayError(message: "Impossible de charger les réservations. Veuillez vérifier votre connexion et réessayer.")
                     self.hideLoading()
                     self.showEmptyState()
                 }
@@ -201,7 +201,7 @@ class ReservationListViewController: UIViewController {
         refreshControl.endRefreshing()
     }
     
-    private func showError(message: String) {
+    private func displayError(message: String) {
         let alert = UIAlertController(
             title: "Erreur",
             message: message,
@@ -211,7 +211,6 @@ class ReservationListViewController: UIViewController {
         present(alert, animated: true)
     }
 }
-
 // MARK: - UITableViewDataSource
 extension ReservationListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

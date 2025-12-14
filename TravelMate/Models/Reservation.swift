@@ -1,10 +1,10 @@
 import Foundation
-import UIKit
+import UIKit    
 
 struct Reservation: Codable, Identifiable {
     let _id: String
     let voyage_id: VoyageInfo
-    let user_id: UserInfo
+    let user_id: ReservationUserInfo
     let prix: Double
     let nombre_personnes: Int
     let notes: String?
@@ -36,7 +36,7 @@ struct VoyageInfo: Codable {
     let imageUrl: String?
 }
 
-struct UserInfo: Codable {
+struct ReservationUserInfo: Codable {
     let _id: String
     let name: String
     let email: String

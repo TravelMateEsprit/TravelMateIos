@@ -106,7 +106,7 @@ class ProfileViewController: UIViewController {
     
     private let settingsButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Paramètres", for: .normal)
+        button.setTitle(localized("profile.settings"), for: .normal)
         button.setTitleColor(.primaryColor, for: .normal)
         button.backgroundColor = .primaryColor.withAlphaComponent(0.1)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
@@ -119,7 +119,7 @@ class ProfileViewController: UIViewController {
     
     private let logoutButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Se déconnecter", for: .normal)
+        button.setTitle(localized("profile.logout"), for: .normal)
         button.backgroundColor = .systemRed
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
@@ -155,6 +155,16 @@ class ProfileViewController: UIViewController {
         backButton.tintColor = .white
         navigationItem.leftBarButtonItem = backButton
         
+        // Add globe icon for language selection
+        let globeButton = UIBarButtonItem(
+            image: UIImage(systemName: "globe"),
+            style: .plain,
+            target: self,
+            action: #selector(languageButtonTapped)
+        )
+        globeButton.tintColor = .white
+        navigationItem.rightBarButtonItem = globeButton
+        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(red: 0.2, green: 0.6, blue: 0.9, alpha: 1.0)
@@ -170,9 +180,53 @@ class ProfileViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc private func languageButtonTapped() {
+        let alert = UIAlertController(
+            title: localized("language.title"),
+            message: localized("language.select"),
+            preferredStyle: .actionSheet
+        )
+        
+        // Add language options
+        for language in AppLanguage.allCases {
+            let isCurrentLanguage = language == LanguageManager.shared.currentLanguage
+            let title = isCurrentLanguage ? "✓ \(language.displayName)" : language.displayName
+            
+            let action = UIAlertAction(title: title, style: .default) { [weak self] _ in
+                if language != LanguageManager.shared.currentLanguage {
+                    LanguageManager.shared.currentLanguage = language
+                    self?.refreshUI()
+                }
+            }
+            alert.addAction(action)
+        }
+        
+        alert.addAction(UIAlertAction(title: localized("common.cancel"), style: .cancel))
+        
+        // For iPad support
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.barButtonItem = navigationItem.rightBarButtonItem
+        }
+        
+        present(alert, animated: true)
+    }
+    
+    private func refreshUI() {
+        // Update navigation title
+        title = localized("profile.title")
+        
+        // Update button titles
+        settingsButton.setTitle(localized("profile.settings"), for: .normal)
+        logoutButton.setTitle(localized("profile.logout"), for: .normal)
+        
+        // Update user info
+        updateUserInfo()
+    }
+
+    
     private func setupUI() {
         view.backgroundColor = UIColor(white: 0.97, alpha: 1)
-        title = "Profil"
+        title = localized("profile.title")
         
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -284,7 +338,7 @@ class ProfileViewController: UIViewController {
     }
     
     @objc private func handleSettings() {
-        showAlert(title: "Paramètres", message: "Fonctionnalité à venir")
+        showAlert(title: localized("profile.settings"), message: localized("profile.settings.comingSoon"))
     }
     
     private func updateUserInfo() {
@@ -295,32 +349,32 @@ class ProfileViewController: UIViewController {
         
         switch user.userType {
         case .user:
-            userTypeLabel.text = "Utilisateur"
+            userTypeLabel.text = localized("profile.userType.user")
             userTypeIconView.image = UIImage(systemName: "person.fill")
             userTypeIconView.tintColor = .systemBlue
         case .agence:
-            userTypeLabel.text = "Agence de voyage"
+            userTypeLabel.text = localized("profile.userType.agency")
             userTypeIconView.image = UIImage(systemName: "building.2.fill")
             userTypeIconView.tintColor = .systemPurple
         case .admin:
-            userTypeLabel.text = "Administrateur"
+            userTypeLabel.text = localized("profile.userType.admin")
             userTypeIconView.image = UIImage(systemName: "star.fill")
             userTypeIconView.tintColor = .systemYellow
         }
         
         switch user.status {
         case .active:
-            statusLabel.text = "Compte Actif"
+            statusLabel.text = localized("profile.status.active")
             statusLabel.textColor = .systemGreen
             statusIconView.image = UIImage(systemName: "checkmark.circle.fill")
             statusIconView.tintColor = .systemGreen
         case .pending:
-            statusLabel.text = "En attente de vérification"
+            statusLabel.text = localized("profile.status.pending")
             statusLabel.textColor = .systemOrange
             statusIconView.image = UIImage(systemName: "clock.fill")
             statusIconView.tintColor = .systemOrange
         case .suspended:
-            statusLabel.text = "Compte Suspendu"
+            statusLabel.text = localized("profile.status.suspended")
             statusLabel.textColor = .systemRed
             statusIconView.image = UIImage(systemName: "xmark.circle.fill")
             statusIconView.tintColor = .systemRed
@@ -329,13 +383,13 @@ class ProfileViewController: UIViewController {
     
     @objc private func handleLogout() {
         let alert = UIAlertController(
-            title: "Déconnexion",
-            message: "Êtes-vous sûr de vouloir vous déconnecter?",
+            title: localized("profile.logout.title"),
+            message: localized("profile.logout.message"),
             preferredStyle: .alert
         )
         
-        alert.addAction(UIAlertAction(title: "Annuler", style: .cancel))
-        alert.addAction(UIAlertAction(title: "Déconnexion", style: .destructive) { [weak self] _ in
+        alert.addAction(UIAlertAction(title: localized("common.cancel"), style: .cancel))
+        alert.addAction(UIAlertAction(title: localized("profile.logout.confirm"), style: .destructive) { [weak self] _ in
             self?.performLogout()
         })
         

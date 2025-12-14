@@ -19,14 +19,14 @@ class NetworkService {
         case delete = "DELETE"
     }
     
-    enum NetworkError: Error {
+    enum NetworkError: LocalizedError {
         case invalidURL
         case noData
         case decodingError
         case serverError(String)
         case unauthorized
         
-        var localizedDescription: String {
+        var errorDescription: String? {
             switch self {
             case .invalidURL:
                 return "URL invalide"

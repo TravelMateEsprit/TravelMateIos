@@ -1,0 +1,60 @@
+/* Tab Bar Items */
+"tab.home" = "Home";
+"tab.voyages" = "Trips";
+"tab.packs" = "Packs";
+"tab.myPacks" = "My Packs";
+"tab.favorites" = "Favorites";
+"tab.reservations" = "Reservations";
+"tab.groups" = "Groups";
+"tab.insurances" = "Insurances";
+"tab.messages" = "Messages";
+"tab.profile" = "Profile";
+
+/* Profile Page */
+"profile.title" = "Profile";
+"profile.settings" = "Settings";
+"profile.logout" = "Log Out";
+"profile.userType.user" = "User";
+"profile.userType.agency" = "Travel Agency";
+"profile.userType.admin" = "Administrator";
+"profile.status.active" = "Active Account";
+"profile.status.pending" = "Pending Verification";
+"profile.status.suspended" = "Suspended Account";
+"profile.logout.title" = "Log Out";
+"profile.logout.message" = "Are you sure you want to log out?";
+"profile.logout.confirm" = "Log Out";
+"profile.settings.comingSoon" = "Coming Soon";
+
+/* Home Page */
+"home.welcome" = "Hello,\n%@!";
+"home.welcomeDefault" = "Welcome!";
+"home.description" = "What would you like to do today?";
+"home.action.voyages.title" = "My Trips";
+"home.action.voyages.subtitle" = "Manage your trips and reservations";
+"home.action.insurances.title" = "Insurances";
+"home.action.insurances.subtitle" = "View your travel insurances";
+"home.action.packs.title" = "Travel Packs";
+"home.action.packs.subtitle" = "Discover our exclusive packs";
+"home.action.groups.title" = "My Groups";
+"home.action.groups.subtitle" = "Travel in groups";
+
+/* Common */
+"common.cancel" = "Cancel";
+"common.ok" = "OK";
+"common.save" = "Save";
+"common.delete" = "Delete";
+"common.edit" = "Edit";
+"common.back" = "Back";
+"common.next" = "Next";
+"common.done" = "Done";
+"common.search" = "Search";
+"common.filter" = "Filter";
+"common.sort" = "Sort";
+"common.yes" = "Yes";
+"common.no" = "No";
+
+/* Language Selection */
+"language.title" = "Language";
+"language.select" = "Select Language";
+"language.french" = "Français";
+"language.english" = "English";

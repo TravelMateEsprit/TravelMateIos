@@ -356,12 +356,24 @@ class LoginViewController: UIViewController {
     }
     
     private func navigateToMain() {
-        let mainTabBar = MainTabBarController()
-        mainTabBar.modalPresentationStyle = .fullScreen
+        guard let user = AuthService.shared.currentUser else { return }
+        
+        let rootViewController: UIViewController
+        
+        // Redirection selon le rôle de l'utilisateur
+        if user.userType == .agence {
+            // Agence → Dashboard agence
+            rootViewController = AgencyDashboardViewController()
+        } else {
+            // Utilisateur normal → TabBar principal
+            rootViewController = MainTabBarController()
+        }
+        
+        rootViewController.modalPresentationStyle = .fullScreen
         
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let window = windowScene.windows.first {
-            window.rootViewController = mainTabBar
+            window.rootViewController = rootViewController
             UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: nil)
         }
         
